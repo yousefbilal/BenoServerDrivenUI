@@ -481,13 +481,16 @@ fun NavItem(
     selectedColor: Color,
     unselectedColor: Color
 ) {
-    Box(
+    Button(
         modifier = modifier
             .size(80.dp)
             .clip(RoundedCornerShape(20.dp))
-            .background(if (isSelected) Green else White)
-            .clickable { onClick() },
-        contentAlignment = Alignment.Center,
+            .background(if (isSelected) Green else White),
+        onClick = { onClick() },
+        contentPadding = PaddingValues(0.dp),
+        shape = RoundedCornerShape(20.dp),
+        colors = ButtonDefaults.buttonColors(if(isSelected) Green else White)
+//        contentAlignment = Alignment.Center,
     ) {
         BadgedBox(badge = {
             if (badgeCount != null) {
