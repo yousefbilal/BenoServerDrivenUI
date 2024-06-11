@@ -178,7 +178,9 @@ private fun Home() {
         NavBar(
             modifier = Modifier
                 .align(Alignment.BottomCenter)
-                .padding(bottom = 26.dp)
+                .padding(bottom = 26.dp),
+            onClick = {}
+
         )
 
     }
@@ -307,7 +309,7 @@ fun Filter(modifier: Modifier = Modifier, text: String, onClick: () -> Unit, isS
     Button(
         onClick = { onClick() },
         contentPadding = PaddingValues(0.dp),
-        colors = ButtonDefaults.buttonColors(if(isSelected) Green else White),
+        colors = ButtonDefaults.buttonColors(if (isSelected) Green else White),
         shape = RoundedCornerShape(10.dp),
         modifier = modifier
     ) {
@@ -416,6 +418,7 @@ fun SearchBar(modifier: Modifier = Modifier, value: String, onValueChange: (Stri
         modifier = modifier
             .fillMaxWidth()
             .height(48.dp),
+        singleLine = true,
         value = value,
         onValueChange = onValueChange,
         textStyle = TextStyle(
@@ -468,7 +471,53 @@ data class BottomNavigationItem(
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun NavBar(modifier: Modifier = Modifier) {
+fun NavItem(
+    modifier: Modifier = Modifier,
+    onClick: () -> Unit,
+    isSelected: Boolean,
+    badgeCount: Int?,
+    icon: ImageVector,
+    title: String,
+    selectedColor: Color,
+    unselectedColor: Color
+) {
+    Box(
+        modifier = modifier
+            .size(80.dp)
+            .clip(RoundedCornerShape(20.dp))
+            .background(if (isSelected) Green else White)
+            .clickable { onClick() },
+        contentAlignment = Alignment.Center,
+    ) {
+        BadgedBox(badge = {
+            if (badgeCount != null) {
+                Badge(
+                    containerColor = Red, contentColor = White
+                ) {
+                    Text(
+                        text = badgeCount.toString(),
+                        fontSize = 12.sp,
+                        fontFamily = sfProTextFontFamily
+                    )
+                }
+            }
+        }) {
+            Icon(
+                imageVector = icon,
+                contentDescription = title,
+                tint = if (isSelected) {
+                    selectedColor
+                } else {
+                    unselectedColor
+                }
+
+            )
+        }
+    }
+}
+
+@Composable
+fun NavBar(modifier: Modifier = Modifier, onClick: (BottomNavigationItem) -> Unit) {
     var selectedItemIndex by remember {
         mutableIntStateOf(0)
     }
@@ -509,45 +558,22 @@ fun NavBar(modifier: Modifier = Modifier) {
 
     ) {
         items.forEachIndexed { index, item ->
-            Box(
-                modifier = Modifier
-                    .size(80.dp)
-                    .clip(RoundedCornerShape(20.dp))
-                    .background(if (index == selectedItemIndex) Green else White)
-                    .clickable { selectedItemIndex = index },
-                contentAlignment = Alignment.Center,
-            ) {
-                BadgedBox(badge = {
-                    if (item.badgeCount != null) {
-                        Badge(
-                            containerColor = Red, contentColor = White
-                        ) {
-                            Text(
-                                text = item.badgeCount.toString(),
-                                fontSize = 12.sp,
-                                fontFamily = sfProTextFontFamily
-                            )
-                        }
-                    }
-                }) {
-                    Icon(
-                        imageVector = item.icon,
-                        contentDescription = item.title,
-                        tint = if (index == selectedItemIndex) {
-                            item.selectedColor
-                        } else {
-                            item.unselectedColor
-                        }
-
-                    )
-                }
-            }
+            NavItem(
+                onClick = {
+                    selectedItemIndex = index
+                    onClick(item)
+                },
+                isSelected = selectedItemIndex == index,
+                badgeCount = item.badgeCount,
+                icon = item.icon,
+                title = item.title,
+                selectedColor = item.selectedColor,
+                unselectedColor = item.unselectedColor
+            )
         }
     }
 }
 
-
-//@PreviewScreenSizes
 @Composable
 @Preview(device = Devices.PIXEL_XL)
 @Preview(device = Devices.FOLDABLE)
