@@ -12,21 +12,21 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.safeDrawingPadding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.foundation.selection.selectableGroup
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.material.icons.Icons
@@ -44,13 +44,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.NavigationBarDefaults
-import androidx.compose.material3.NavigationBarItem
-import androidx.compose.material3.NavigationBarItemDefaults
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
-import androidx.compose.material3.contentColorFor
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
@@ -60,17 +54,15 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.drawBehind
-import androidx.compose.ui.geometry.CornerRadius
-import androidx.compose.ui.geometry.Size
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
@@ -89,65 +81,138 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
+            Home()
+        }
+    }
+}
 
-            var text by remember {
-                mutableStateOf("")
-            }
-            Box(
+@Composable
+private fun Home() {
+    val products = listOf(
+        Product(
+            imageUrl = "https://s26552.pcdn.co/wp-content/uploads/2024/03/coffee.jpeg",
+            productName = "Coffee",
+            description = "Classic",
+            price = "$10"
+        ),
+        Product(
+            imageUrl = "https://s26552.pcdn.co/wp-content/uploads/2024/03/coffee.jpeg",
+            productName = "Coffee",
+            description = "Classic",
+            price = "$10"
+        ),
+        Product(
+            imageUrl = "https://s26552.pcdn.co/wp-content/uploads/2024/03/coffee.jpeg",
+            productName = "Coffee",
+            description = "Classic",
+            price = "$10"
+        ),
+        Product(
+            imageUrl = "https://s26552.pcdn.co/wp-content/uploads/2024/03/coffee.jpeg",
+            productName = "Coffee",
+            description = "Classic",
+            price = "$10"
+        ),
+        Product(
+            imageUrl = "https://s26552.pcdn.co/wp-content/uploads/2024/03/coffee.jpeg",
+            productName = "Coffee",
+            description = "Classic",
+            price = "$10"
+        )
+    )
+    val filters = listOf(
+        Filter("Coffee"),
+        Filter("Cappuccino"),
+        Filter("Tea"),
+        Filter("Latte"),
+        Filter("Coffee"),
+        Filter("Cappuccino"),
+        Filter("Tea"),
+        Filter("Latte"),
+    )
+
+    var text by remember {
+        mutableStateOf("")
+    }
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Green)
+            .padding(top = 297.dp)
+            .background(LightGrey)
+    ) {}
+
+    Box(modifier = Modifier.fillMaxSize()) {
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .statusBarsPadding()
+                .padding(horizontal = 24.dp)
+        ) {
+            TopAppBar(
+                page = "Home",
+                onClickMenu = {},
+                onClickProfile = {})
+            SearchBar(
+                value = text,
+                onValueChange = { text = it },
+                modifier = Modifier.padding(top = 10.dp)
+            )
+            Image(
+                painter = painterResource(id = R.drawable.img),
+                contentDescription = "image",
                 modifier = Modifier
-                    .fillMaxSize()
-                    .background(Green)
-                    .padding(top = 297.dp)
-                    .background(LightGrey)
-            ) {}
-            Column(
+                    .fillMaxWidth()
+                    .padding(top = 24.dp),
+//                    .height(163.dp),
+
+                contentScale = ContentScale.FillWidth
+            )
+
+
+            FilterList(items = filters, onClick = {}, modifier = Modifier.padding(vertical = 24.dp))
+
+            ProductsGrid(items = products, onClick = {})
+        }
+
+        NavBar(
+            modifier = Modifier
+                .align(Alignment.BottomCenter)
+                .padding(bottom = 26.dp)
+        )
+
+    }
+}
+
+data class Product(
+    val imageUrl: String,
+    val price: String,
+    val productName: String,
+    val description: String
+)
+
+@Composable
+private fun ProductsGrid(
+    modifier: Modifier = Modifier,
+    items: List<Product>,
+    onClick: (Product) -> Unit
+) {
+    LazyVerticalGrid(
+        columns = GridCells.FixedSize(167.dp),
+        horizontalArrangement = Arrangement.SpaceBetween,
+        verticalArrangement = Arrangement.spacedBy(10.dp),
+        modifier = modifier.fillMaxSize()
+    ) {
+        items(items) {
+            ProductCard(
                 modifier = Modifier
-                    .fillMaxSize()
-                    .safeDrawingPadding()
-            ) {
-                TopAppBar(
-                    page = "Home",
-                    modifier = Modifier.padding(horizontal = 24.dp),
-                    onClickMenu = {},
-                    onClickProfile = {})
-                SearchBar(
-                    value = text,
-                    onValueChange = { text = it },
-                    modifier = Modifier.padding(start = 24.dp, end = 24.dp, top = 10.dp)
-                )
-
-                Image(
-                    painter = painterResource(id = R.drawable.img),
-                    contentDescription = "image",
-                    modifier = Modifier
-//                        .clip(RoundedCornerShape(20.dp))
-                        .padding(horizontal = 24.dp)
-                        .aspectRatio((344 / 163).toFloat())
-                        .size(344.dp, 163.dp)
-                        .fillMaxWidth()
-                )
-
-                LazyRow(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(start = 24.dp, bottom = 24.dp),
-                    horizontalArrangement = Arrangement.spacedBy(10.dp)
-                ) {
-                    items(10) {
-                        Filter(text = "Coffee", onClick = { /*TODO*/ }, isSelected = true)
-                    }
-                }
-                ProductCard(
-                    modifier = Modifier.size(167.dp, 239.dp),
-                    imageUrl = "https://s26552.pcdn.co/wp-content/uploads/2024/03/coffee.jpeg",
-                    productName = "Coffee",
-                    description = "Classic",
-                    price = "$10",
-                    onClick = {}
-                )
-                NavBar()
-            }
-
+                    .size(167.dp, 239.dp),
+                imageUrl = it.imageUrl,
+                productName = it.productName,
+                description = it.description,
+                price = it.price,
+                onClick = { onClick(it) }
+            )
         }
     }
 }
@@ -212,12 +277,37 @@ fun TopAppBar(
     }
 }
 
+data class Filter(val name: String)
+
+@Composable
+fun FilterList(modifier: Modifier = Modifier, items: List<Filter>, onClick: (Filter) -> Unit) {
+    var selectedItemIndex by remember {
+        mutableIntStateOf(0)
+    }
+    LazyRow(
+        modifier = modifier
+            .fillMaxWidth(),
+        horizontalArrangement = Arrangement.spacedBy(10.dp)
+    ) {
+        itemsIndexed(items) { index, item ->
+            Filter(
+                text = item.name,
+                onClick = {
+                    selectedItemIndex = index
+                    onClick(item)
+                },
+                isSelected = selectedItemIndex == index
+            )
+        }
+    }
+}
+
 @Composable
 fun Filter(modifier: Modifier = Modifier, text: String, onClick: () -> Unit, isSelected: Boolean) {
     Button(
         onClick = { onClick() },
         contentPadding = PaddingValues(0.dp),
-        colors = ButtonDefaults.buttonColors(if (isSelected) Green else White),
+        colors = ButtonDefaults.buttonColors(if(isSelected) Green else White),
         shape = RoundedCornerShape(10.dp),
         modifier = modifier
     ) {
@@ -232,9 +322,7 @@ fun Filter(modifier: Modifier = Modifier, text: String, onClick: () -> Unit, isS
                 FontBlack
             },
             modifier = Modifier.padding(horizontal = 10.dp, vertical = 5.dp)
-
         )
-
     }
 }
 
@@ -319,7 +407,6 @@ fun ProductCard(
                 )
             }
         }
-
     }
 }
 
@@ -369,35 +456,6 @@ fun SearchBar(modifier: Modifier = Modifier, value: String, onValueChange: (Stri
             }
         }
     )
-
-
-}
-
-@Composable
-fun CustomNavigationBar(
-    modifier: Modifier = Modifier,
-    containerColor: Color = NavigationBarDefaults.containerColor,
-    contentColor: Color = MaterialTheme.colorScheme.contentColorFor(containerColor),
-    tonalElevation: Dp = NavigationBarDefaults.Elevation,
-    windowInsets: WindowInsets = NavigationBarDefaults.windowInsets,
-    content: @Composable RowScope.() -> Unit
-) {
-    Surface(
-        color = containerColor,
-        contentColor = contentColor,
-        tonalElevation = tonalElevation,
-        modifier = modifier
-    ) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .windowInsetsPadding(windowInsets)
-                .height(80.dp)
-                .selectableGroup(),
-            horizontalArrangement = Arrangement.spacedBy(10.dp),
-            content = content
-        )
-    }
 }
 
 data class BottomNavigationItem(
@@ -441,76 +499,59 @@ fun NavBar(modifier: Modifier = Modifier) {
             unselectedColor = FontDarkGrey
         )
     )
-    CustomNavigationBar(
-        modifier = Modifier
+    Row(
+        modifier = modifier
+            .shadow(elevation = 5.dp, shape = RoundedCornerShape(20.dp))
             .height(80.dp)
-            .width(350.dp)
             .clip(RoundedCornerShape(20.dp))
-            .then(modifier),
-        containerColor = White,
+            .background(White),
+        horizontalArrangement = Arrangement.spacedBy(10.dp)
+
     ) {
-
         items.forEachIndexed { index, item ->
-            NavigationBarItem(
-                selected = selectedItemIndex == index,
-                onClick = {
-                    selectedItemIndex = index
-                },
-                colors = NavigationBarItemDefaults.colors(indicatorColor = Green),
-                icon = {
-                    BadgedBox(badge = {
-                        if (item.badgeCount != null) {
-                            Badge(
-                                containerColor = Red, contentColor = White
-                            ) {
-                                Text(
-                                    text = item.badgeCount.toString(),
-                                    fontSize = 12.sp,
-                                    fontFamily = sfProTextFontFamily
-                                )
-                            }
-                        }
-                    }) {
-                        Icon(
-                            imageVector = item.icon,
-                            contentDescription = item.title,
-                            tint = if (index == selectedItemIndex) {
-                                item.selectedColor
-                            } else {
-                                item.unselectedColor
-                            }
-
-                        )
-                    }
-                },
-                modifier = Modifier.drawBehind {
-                    if (index == selectedItemIndex) {
-                        drawRoundRect(
-                            Green,
-                            size = Size(80.dp.toPx(), 80.dp.toPx()),
-                            cornerRadius = CornerRadius(20.dp.toPx(), 20.dp.toPx())
-                        )
-                    }
-                }
-            )
-        }
-    }
-}
-
-@Preview
-@Composable
-private fun Prev() {
-    Column {
-        CustomNavigationBar(
-            modifier = Modifier
-                .height(80.dp)
-                .width(350.dp)
-                .clip(RoundedCornerShape(20.dp)),
-
-            containerColor = White,
-
+            Box(
+                modifier = Modifier
+                    .size(80.dp)
+                    .clip(RoundedCornerShape(20.dp))
+                    .background(if (index == selectedItemIndex) Green else White)
+                    .clickable { selectedItemIndex = index },
+                contentAlignment = Alignment.Center,
             ) {
+                BadgedBox(badge = {
+                    if (item.badgeCount != null) {
+                        Badge(
+                            containerColor = Red, contentColor = White
+                        ) {
+                            Text(
+                                text = item.badgeCount.toString(),
+                                fontSize = 12.sp,
+                                fontFamily = sfProTextFontFamily
+                            )
+                        }
+                    }
+                }) {
+                    Icon(
+                        imageVector = item.icon,
+                        contentDescription = item.title,
+                        tint = if (index == selectedItemIndex) {
+                            item.selectedColor
+                        } else {
+                            item.unselectedColor
+                        }
 
+                    )
+                }
+            }
         }
     }
 }
+
+
+//@PreviewScreenSizes
+@Composable
+@Preview(device = Devices.PIXEL_XL)
+@Preview(device = Devices.FOLDABLE)
+private fun Prev() {
+    Home()
+}
+
