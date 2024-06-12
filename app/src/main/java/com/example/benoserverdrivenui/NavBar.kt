@@ -98,9 +98,9 @@ fun NavItem(
 }
 
 @Composable
-fun NavBar(modifier: Modifier = Modifier, onClick: (BottomNavigationItem) -> Unit) {
+fun NavBar(modifier: Modifier = Modifier, onClick: (BottomNavigationItem) -> Unit, defaultSate: Int) {
     var selectedItemIndex by remember {
-        mutableIntStateOf(0)
+        mutableIntStateOf(defaultSate)
     }
     val items = listOf(
         BottomNavigationItem(
