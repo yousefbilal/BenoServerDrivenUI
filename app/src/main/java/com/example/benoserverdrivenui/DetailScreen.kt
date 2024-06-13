@@ -22,6 +22,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.FavoriteBorder
 import androidx.compose.material.icons.rounded.ArrowBack
+import androidx.compose.material.icons.rounded.KeyboardArrowLeft
 import androidx.compose.material.icons.rounded.Star
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -162,7 +163,7 @@ fun DetailTopAppBar(
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
         Icon(
-            imageVector = Icons.Rounded.ArrowBack,
+            imageVector = Icons.Rounded.KeyboardArrowLeft,
             contentDescription = "Back",
             tint = White,
             modifier = Modifier
