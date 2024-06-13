@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -16,6 +17,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawingPadding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBarsPadding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.FavoriteBorder
@@ -57,6 +59,7 @@ import com.example.benoserverdrivenui.ui.theme.FontDarkGrey
 import com.example.benoserverdrivenui.ui.theme.FontLightGrey
 import com.example.benoserverdrivenui.ui.theme.FontMediumGrey
 import com.example.benoserverdrivenui.ui.theme.Green
+import com.example.benoserverdrivenui.ui.theme.LightGreen
 import com.example.benoserverdrivenui.ui.theme.LightGrey
 import com.example.benoserverdrivenui.ui.theme.White
 import com.example.benoserverdrivenui.ui.theme.Yellow
@@ -98,7 +101,13 @@ fun DetailScreen() {
 
             ProductDetails(modifier = Modifier.padding(top = 24.dp), product = product)
 
-            SizeBox(modifier = Modifier.padding(top = 20.dp), onClick = {/* TODO */ })
+            SizeBox(modifier = Modifier.padding(top = 20.dp), onClick = { /*TODO*/ })
+
+            BuyNowRow(
+                modifier = Modifier.padding(top = 24.dp),
+                onClick = { /*TODO*/ },
+                price = product.price
+            )
         }
         NavBar(modifier = Modifier
             .align(Alignment.BottomCenter)
@@ -106,6 +115,36 @@ fun DetailScreen() {
             defaultSate = 0,
             onClick = {/*TODO*/ }
         )
+    }
+}
+
+@Composable
+fun BuyNowRow(modifier: Modifier = Modifier, price: String, onClick: () -> Unit) {
+    Row(
+        modifier = modifier.fillMaxWidth()
+    ) {
+
+        Column {
+            Text(
+                text = "Price",
+                fontSize = 14.sp,
+                color = FontLightGrey,
+                fontFamily = sfProTextFontFamily,
+                fontWeight = FontWeight(400),
+                modifier = Modifier.padding(bottom = 8.dp)
+            )
+            Text(
+                text = price,
+                fontSize = 18.sp,
+                color = Green,
+                fontFamily = sfProTextFontFamily,
+                fontWeight = FontWeight(600)
+            )
+        }
+        Spacer(modifier = Modifier.width(57.dp))
+        GreenButton(text = "Buy Now", onClick = { onClick() })
+
+
     }
 }
 
@@ -304,19 +343,23 @@ fun SizeButton(
     Button(
         modifier = modifier
             .clip(RoundedCornerShape(10.dp))
-            .background(if (isSelected) Green else Color.Transparent)
-            .border(width = 1.dp, color = FontLightGrey, shape = RoundedCornerShape(10.dp)),
+            .background(if (isSelected) LightGreen else Color.Transparent)
+            .border(
+                width = 1.dp,
+                color = if (isSelected) Green else FontLightGrey,
+                shape = RoundedCornerShape(10.dp)
+            ),
         onClick = { onClick() },
         contentPadding = PaddingValues(0.dp),
         shape = RoundedCornerShape(10.dp),
-        colors = ButtonDefaults.buttonColors(if (isSelected) Green else Color.Transparent)
+        colors = ButtonDefaults.buttonColors(if (isSelected) LightGreen else Color.Transparent)
     ) {
         Text(
             text = text,
             fontSize = 14.sp,
             fontFamily = sfProTextFontFamily,
             fontWeight = FontWeight(400),
-            color = if (isSelected) White else FontBlack,
+            color = if (isSelected) Green else FontLightGrey,
             modifier = Modifier.padding(horizontal = 49.dp, vertical = 10.dp)
         )
     }
@@ -403,10 +446,30 @@ fun Rating(modifier: Modifier = Modifier, rating: Float, ratingCount: Int) {
 }
 
 @Composable
+fun GreenButton(modifier: Modifier = Modifier, text: String, onClick: () -> Unit) {
+    Button(
+        modifier = modifier.fillMaxWidth(),
+        colors = ButtonDefaults.buttonColors(Green),
+        shape = RoundedCornerShape(16.dp),
+        contentPadding = PaddingValues(vertical = 21.dp, horizontal = 0.dp),
+        onClick = { onClick() }) {
+
+        Text(
+            text = text,
+            fontFamily = sfProTextFontFamily,
+            fontWeight = FontWeight(600),
+            fontSize = 16.sp,
+            color = White
+        )
+
+    }
+}
+
+@Composable
 @Preview(device = Devices.PIXEL_XL)
 @Preview(device = Devices.FOLDABLE)
 private fun Prev() {
-    SizeBox(onClick = {})
+
 
 }
 
