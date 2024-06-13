@@ -1,6 +1,7 @@
 package com.example.benoserverdrivenui
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -73,7 +74,7 @@ fun NavItem(
         BadgedBox(badge = {
             if (badgeCount != null) {
                 Badge(
-                    containerColor = Red, contentColor = White
+                    containerColor = Red, contentColor = White, modifier = Modifier.border(1.dp, White, RoundedCornerShape(50))
                 ) {
                     Text(
                         text = badgeCount.toString(),
