@@ -1,6 +1,11 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+
+    //Dagger-Hilt
+    kotlin("kapt")
+    id("com.google.dagger.hilt.android")
+
 }
 
 android {
@@ -69,4 +74,22 @@ dependencies {
 
     //Coil
     implementation(libs.coil.compose)
+
+    //retrofit
+    implementation(libs.retrofit)
+
+    //gson converter
+    implementation(libs.retrofit2.converter.gson)
+
+    //Dagger-Hilt
+    implementation("com.google.dagger:hilt-android:2.51.1")
+    kapt("com.google.dagger:hilt-android-compiler:2.51.1")
+    kapt("androidx.hilt:hilt-compiler:1.2.0")
+    implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
+
+}
+
+// Allow references to generated code
+kapt {
+    correctErrorTypes = true
 }

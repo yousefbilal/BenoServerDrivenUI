@@ -2,15 +2,12 @@ package com.example.benoserverdrivenui
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.aspectRatio
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -27,18 +24,9 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
-import androidx.compose.material.icons.outlined.AccountCircle
-import androidx.compose.material.icons.outlined.FavoriteBorder
-import androidx.compose.material.icons.outlined.Home
-import androidx.compose.material.icons.outlined.Notifications
-import androidx.compose.material.icons.outlined.ShoppingCart
-import androidx.compose.material.icons.rounded.Menu
 import androidx.compose.material.icons.rounded.Search
-import androidx.compose.material3.Badge
-import androidx.compose.material3.BadgedBox
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -50,9 +38,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.shadow
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
@@ -66,7 +51,6 @@ import com.example.benoserverdrivenui.ui.theme.FontLightGrey
 import com.example.benoserverdrivenui.ui.theme.Green
 import com.example.benoserverdrivenui.ui.theme.Grey
 import com.example.benoserverdrivenui.ui.theme.LightGrey
-import com.example.benoserverdrivenui.ui.theme.Red
 import com.example.benoserverdrivenui.ui.theme.White
 import com.example.benoserverdrivenui.ui.theme.sfProTextFontFamily
 
@@ -121,14 +105,14 @@ fun Home() {
         )
     )
     val filters = listOf(
-        Filter("Coffee"),
-        Filter("Cappuccino"),
-        Filter("Tea"),
-        Filter("Latte"),
-        Filter("Coffee"),
-        Filter("Cappuccino"),
-        Filter("Tea"),
-        Filter("Latte"),
+        CoffeeFilter("Coffee"),
+        CoffeeFilter("Cappuccino"),
+        CoffeeFilter("Tea"),
+        CoffeeFilter("Latte"),
+        CoffeeFilter("Coffee"),
+        CoffeeFilter("Cappuccino"),
+        CoffeeFilter("Tea"),
+        CoffeeFilter("Latte"),
     )
 
     var text by remember {
@@ -216,10 +200,10 @@ fun ProductsGrid(
 
 
 
-data class Filter(val name: String)
+data class CoffeeFilter(val name: String)
 
 @Composable
-fun FilterList(modifier: Modifier = Modifier, items: List<Filter>, onClick: (Filter) -> Unit) {
+fun FilterList(modifier: Modifier = Modifier, items: List<CoffeeFilter>, onClick: (CoffeeFilter) -> Unit) {
     var selectedItemIndex by remember {
         mutableIntStateOf(0)
     }
