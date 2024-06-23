@@ -9,19 +9,22 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
 object AppModule {
 
-    private const val BASEURL = "https://gist.githubusercontent.com/yousefbilal/d99cc28b8abc25bce8f4b321cb3cd2ec/raw/5b51c8750a070eb63bd92ded3c173592ca450cf7/"
+    private const val BASEURL =
+        "https://gist.githubusercontent.com/yousefbilal/d99cc28b8abc25bce8f4b321cb3cd2ec/raw/0811d383a8480318454897213f3f4e6c5ba8c3fb/"
 
     @Provides
     @Singleton
     fun provideApi(): Api {
         return Retrofit.Builder()
             .baseUrl(BASEURL)
+            .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(Api::class.java)
     }

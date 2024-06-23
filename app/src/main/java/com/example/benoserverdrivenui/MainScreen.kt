@@ -334,7 +334,7 @@ fun ProductCard(
 }
 
 @Composable
-fun SearchBar(modifier: Modifier = Modifier, value: String, onValueChange: (String) -> Unit) {
+fun SearchBar(modifier: Modifier = Modifier, placeHolder: String = "Search Coffee", value: String, onValueChange: (String) -> Unit) {
     BasicTextField(
         modifier = modifier
             .fillMaxWidth()
@@ -367,7 +367,7 @@ fun SearchBar(modifier: Modifier = Modifier, value: String, onValueChange: (Stri
                 ) {
                     if (value.isEmpty()) {
                         Text(
-                            "Search Coffee",
+                            placeHolder,
                             fontFamily = sfProTextFontFamily,
                             fontWeight = FontWeight(400),
                             fontSize = 16.sp,

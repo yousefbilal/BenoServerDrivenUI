@@ -1,5 +1,7 @@
 package com.example.benoserverdrivenui.domain.repository
 
+import com.google.gson.JsonObject
+
 interface SDUIRepository {
-    fun getHomeScreen(onResult: (String?) -> Unit)
+    suspend fun getHome(): JsonObject
 }

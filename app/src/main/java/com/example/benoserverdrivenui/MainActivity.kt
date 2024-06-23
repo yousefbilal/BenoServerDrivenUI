@@ -10,6 +10,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
@@ -23,13 +25,11 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             val viewModel = hiltViewModel<MyViewModel>()
-            Column (
-                Modifier
-                    .fillMaxSize()
-                    .statusBarsPadding()
-            ) {
-                Text(text = viewModel.data ?: "ERROR FETCHING DATA" )
-            }
+
+            val UiState = viewModel.data.collectAsState()
+
+            JsonToUI(UiState.value)
+
         }
     }
 }
