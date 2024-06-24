@@ -114,6 +114,9 @@ val componentMap: HashMap<String, @Composable (modifier: Modifier, jsonArgs: Jso
 //                onClick = {})
 //
 //        }
+        "Box" to { modifier, jsonArgs ->
+            Box(modifier = modifier)
+        }
     )
 
 @Composable
