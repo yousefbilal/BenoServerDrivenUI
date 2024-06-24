@@ -17,7 +17,7 @@ import javax.inject.Singleton
 object AppModule {
 
     private const val BASEURL =
-        "https://gist.githubusercontent.com/yousefbilal/d99cc28b8abc25bce8f4b321cb3cd2ec/raw/0811d383a8480318454897213f3f4e6c5ba8c3fb/"
+        "http://10.0.2.2:8000/"
 
     @Provides
     @Singleton

@@ -21,7 +21,6 @@ class MyViewModel @Inject constructor(
         private set
 
     init {
-        Log.d("PRINT", data.value.toString())
         getHome()
     }
 
