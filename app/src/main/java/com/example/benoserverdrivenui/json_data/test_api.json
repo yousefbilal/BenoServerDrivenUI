@@ -1,8 +1,46 @@
 {
   "type": "box-container",
+  "modifiers": [
+    {
+      "type": "fillMaxSize"
+    }
+  ],
   "items": [
     {
+      "type": "box",
+      "modifiers": [
+        {
+          "type": "fillMaxSize"
+        },
+        {
+          "type": "background",
+          "color": "FF1BAE76"
+        },
+        {
+          "type": "padding",
+          "top": 297
+        },
+        {
+          "type": "background",
+          "color": "FFEFEFEF"
+        }
+      ]
+    },
+    {
       "type": "column",
+      "modifiers": [
+        {
+          "type": "fillMaxSize"
+        },
+        {
+          "type": "statusBarsPadding"
+        },
+        {
+          "type": "padding",
+          "start": 24,
+          "end": 24
+        }
+      ],
       "items": [
         {
           "type": "top-app-bar",
@@ -10,10 +48,23 @@
         },
         {
           "type": "search-bar",
-          "placeHolder": "Search Coffee"
+          "placeHolder": "Search Coffee",
+          "modifiers": [
+            {
+              "type": "padding",
+              "top": 10
+            }
+          ]
         },
         {
           "type": "filter-list",
+          "modifiers": [
+            {
+              "type": "padding",
+              "top": 24,
+              "bottom": 24
+            }
+          ],
           "items": [
             {
               "name": "Coffee"

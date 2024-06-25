@@ -1,16 +1,20 @@
 package com.example.benoserverdrivenui.components
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import com.example.benoserverdrivenui.Product
 import com.example.benoserverdrivenui.ProductsGrid
 
-class ProductsGrid (
+class ProductsGrid(
     private val items: List<Product>,
 
-    ): Component {
+    ) : Component() {
     @Composable
     override fun Content() {
-        ProductsGrid(items = items, onClick = { /* TODO */})
+        ProductsGrid(
+            modifier = Modifier.applyModifiers(_modifiers),
+            items = items,
+            onClick = { /* TODO */ })
     }
 
 }

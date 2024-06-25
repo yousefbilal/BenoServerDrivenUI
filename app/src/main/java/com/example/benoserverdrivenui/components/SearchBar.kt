@@ -5,16 +5,21 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Modifier
 import com.example.benoserverdrivenui.SearchBar
 
-class SearchBar (
+class SearchBar(
     private val placeHolder: String
-): Component {
+) : Component() {
     @Composable
     override fun Content() {
         var text by remember {
             mutableStateOf("")
         }
-        SearchBar(placeHolder = placeHolder, value = text, onValueChange = { text = it })
+        SearchBar(
+            modifier = Modifier.applyModifiers(_modifiers),
+            placeHolder = placeHolder,
+            value = text,
+            onValueChange = { text = it })
     }
 }

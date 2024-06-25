@@ -6,10 +6,12 @@ import androidx.compose.ui.Modifier
 
 class BoxContainer(
     private val items: List<Component>
-) : Component {
+) : Component() {
     @Composable
     override fun Content() {
-        Box {
+        Box (
+            modifier = Modifier.applyModifiers(_modifiers)
+        ){
             items.forEach {
                 it.Content()
             }

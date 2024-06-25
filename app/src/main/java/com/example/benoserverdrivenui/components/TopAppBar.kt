@@ -1,13 +1,18 @@
 package com.example.benoserverdrivenui.components
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import com.example.benoserverdrivenui.TopAppBar
 
-class TopAppBar (
+class TopAppBar(
     private val page: String,
-): Component {
+) : Component() {
     @Composable
     override fun Content() {
-        TopAppBar(page = page, onClickMenu = { /*TODO*/ }, onClickProfile = { /*TODO*/ })
+        TopAppBar(
+            modifier = Modifier.applyModifiers(_modifiers),
+            page = page,
+            onClickMenu = { /*TODO*/ },
+            onClickProfile = { /*TODO*/ })
     }
 }
