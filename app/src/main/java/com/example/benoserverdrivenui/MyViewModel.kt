@@ -3,6 +3,7 @@ package com.example.benoserverdrivenui
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.benoserverdrivenui.components.Component
 import com.example.benoserverdrivenui.domain.repository.SDUIRepository
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
@@ -17,7 +18,7 @@ import javax.inject.Inject
 class MyViewModel @Inject constructor(
     private val repository: SDUIRepository
 ) : ViewModel() {
-    var data = MutableStateFlow<JsonObject>(Gson().fromJson("{}", JsonObject::class.java))
+    var data = MutableStateFlow<Component?>(null)
         private set
 
     init {
@@ -31,8 +32,10 @@ class MyViewModel @Inject constructor(
 
     private fun getHome() {
         viewModelScope.launch(Dispatchers.IO) {
-            val res = repository.getHome()
+            val res = repository.getHomeScreen()
             data.value = res
+            Log.d("PRINT", res.toString())
+
         }
     }
 }

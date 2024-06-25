@@ -1,6 +1,7 @@
 package com.example.benoserverdrivenui.di
 
 
+import com.example.benoserverdrivenui.components.ComponentPolymorphicAdapter
 import com.example.benoserverdrivenui.data.remote.Api
 import com.example.benoserverdrivenui.data.repository.SDUIRepositoryImp
 import com.example.benoserverdrivenui.domain.repository.SDUIRepository
@@ -24,7 +25,9 @@ object AppModule {
     fun provideApi(): Api {
         return Retrofit.Builder()
             .baseUrl(BASEURL)
-            .addConverterFactory(GsonConverterFactory.create())
+            .addConverterFactory(
+                GsonConverterFactory.create(ComponentPolymorphicAdapter().getGson())
+            )
             .build()
             .create(Api::class.java)
     }
@@ -34,6 +37,4 @@ object AppModule {
     fun provideSDUIRepository(api: Api): SDUIRepository {
         return SDUIRepositoryImp(api)
     }
-
-
 }

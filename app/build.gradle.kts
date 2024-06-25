@@ -80,6 +80,8 @@ dependencies {
 
     //gson converter
     implementation(libs.retrofit2.converter.gson)
+    implementation("com.google.code.gson:gson:2.11.0")
+    implementation("org.danilopianini:gson-extras:1.3.0")
 
     //Dagger-Hilt
     implementation("com.google.dagger:hilt-android:2.51.1")

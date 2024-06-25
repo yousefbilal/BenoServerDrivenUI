@@ -28,7 +28,8 @@ class MainActivity : ComponentActivity() {
 
             val UiState = viewModel.data.collectAsState()
 
-            JsonToUI(UiState.value)
+            UiState.value?.Content()
+//            JsonToUI(UiState.value)
 
         }
     }
