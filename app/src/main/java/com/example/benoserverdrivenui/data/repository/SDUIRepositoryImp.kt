@@ -9,9 +9,9 @@ class SDUIRepositoryImp(
     private val api: Api
 ) : SDUIRepository {
 
-    override suspend fun getHome(): JsonObject {
-        return api.getHome()
-    }
+//    override suspend fun getHome(): JsonObject {
+//        return api.getHome()
+//    }
 
     override suspend fun getHomeScreen(): Component {
         return api.getHomeScreen()

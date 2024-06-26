@@ -5,10 +5,10 @@ import com.google.gson.JsonObject
 import retrofit2.http.GET
 
 interface Api {
-    @GET("test_api.json")
-    suspend fun getHome(): JsonObject
+//    @GET("test_api.json")
+//    suspend fun getHome(): JsonObject
 
-    @GET("test_api.json")
+    @GET("home_screen.json")
     suspend fun getHomeScreen(): Component
 
 }

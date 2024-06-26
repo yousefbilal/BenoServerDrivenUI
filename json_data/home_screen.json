@@ -97,6 +97,12 @@
         },
         {
           "type": "products-grid",
+          "modifiers": [
+            {
+              "type": "padding",
+              "bottom": 120
+            }
+          ],
           "items": [
             {
               "imageUrl": "https://s26552.pcdn.co/wp-content/uploads/2024/03/coffee.jpeg",
@@ -144,6 +150,15 @@
               "description": "Whatever"
             }
           ]
+        }
+      ]
+    },
+    {
+      "type": "nav-bar",
+      "modifiers": [
+        {
+          "type": "padding",
+          "bottom": 26
         }
       ]
     }

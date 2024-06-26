@@ -22,6 +22,7 @@ class ComponentPolymorphicAdapter {
         .registerSubtype(SearchBar::class.java, "search-bar")
         .registerSubtype(TopAppBar::class.java, "top-app-bar")
         .registerSubtype(Box::class.java, "box")
+        .registerSubtype(NavBar::class.java, "nav-bar")
 
     private val modifierAdapterFactory = RuntimeTypeAdapterFactory
         .of(SduiModifier::class.java, "type")

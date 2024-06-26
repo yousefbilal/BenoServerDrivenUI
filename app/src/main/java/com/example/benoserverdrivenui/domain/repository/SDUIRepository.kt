@@ -4,6 +4,6 @@ import com.example.benoserverdrivenui.components.Component
 import com.google.gson.JsonObject
 
 interface SDUIRepository {
-    suspend fun getHome(): JsonObject
+//    suspend fun getHome(): JsonObject
     suspend fun getHomeScreen(): Component
 }
