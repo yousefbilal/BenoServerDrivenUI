@@ -1,5 +1,8 @@
 package com.example.benoserverdrivenui.components
 
+import com.example.benoserverdrivenui.components.cup_screen.AddressBox
+import com.example.benoserverdrivenui.components.cup_screen.Payment
+import com.example.benoserverdrivenui.components.cup_screen.TopNavBar
 import com.example.benoserverdrivenui.components.details_screen_components.BuyNowRow
 import com.example.benoserverdrivenui.components.details_screen_components.DetailTopAppBar
 import com.example.benoserverdrivenui.components.details_screen_components.ProductsDetails
@@ -38,6 +41,9 @@ class ComponentPolymorphicAdapter {
         .registerSubtype(ProductsDetails::class.java, "product-details")
         .registerSubtype(SizeBox::class.java, "size-box")
         .registerSubtype(BuyNowRow::class.java, "buy-now-row")
+        .registerSubtype(AddressBox::class.java, "address-box")
+        .registerSubtype(Payment::class.java, "payment")
+        .registerSubtype(TopNavBar::class.java, "top-nav-bar")
 
     private val modifierAdapterFactory = RuntimeTypeAdapterFactory
         .of(SduiModifier::class.java, "type")

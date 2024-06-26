@@ -1,0 +1,167 @@
+{
+  "type": "box-container",
+  "modifiers": [
+    {
+      "type": "fillMaxSize"
+    }
+  ],
+  "items": [
+    {
+      "type": "box",
+      "modifiers": [
+        {
+          "type": "fillMaxSize"
+        },
+        {
+          "type": "background",
+          "color": "FF1BAE76"
+        },
+        {
+          "type": "padding",
+          "top": 297
+        },
+        {
+          "type": "background",
+          "color": "FFEFEFEF"
+        }
+      ]
+    },
+    {
+      "type": "column",
+      "modifiers": [
+        {
+          "type": "fillMaxSize"
+        },
+        {
+          "type": "statusBarsPadding"
+        },
+        {
+          "type": "padding",
+          "start": 24,
+          "end": 24
+        }
+      ],
+      "items": [
+        {
+          "type": "top-app-bar",
+          "page": "My Cup"
+        },
+        {
+          "type": "search-bar",
+          "placeHolder": "Search Coffee",
+          "modifiers": [
+            {
+              "type": "padding",
+              "top": 10
+            }
+          ]
+        },
+        {
+          "type": "filter-list",
+          "modifiers": [
+            {
+              "type": "padding",
+              "top": 24,
+              "bottom": 24
+            }
+          ],
+          "items": [
+            {
+              "name": "Coffee"
+            },
+            {
+              "name": "Tea"
+            },
+            {
+              "name": "Latte"
+            },
+            {
+              "name": "Cappuccino"
+            },
+            {
+              "name": "Espresso"
+            },
+            {
+              "name": "Mocha"
+            },
+            {
+              "name": "Macchiato"
+            },
+            {
+              "name": "Americano"
+            },
+            {
+              "name": "Ristretto"
+            }
+          ]
+        },
+        {
+          "type": "products-grid",
+          "modifiers": [
+            {
+              "type": "padding",
+              "bottom": 120
+            }
+          ],
+          "items": [
+            {
+              "imageUrl": "https://s26552.pcdn.co/wp-content/uploads/2024/03/coffee.jpeg",
+              "name": "Coffee",
+              "type": "Classic",
+              "price": "$10",
+              "rating": 4.8,
+              "ratingCount": 230,
+              "description": "Whatever"
+            },
+            {
+              "imageUrl": "https://s26552.pcdn.co/wp-content/uploads/2024/03/coffee.jpeg",
+              "name": "Coffee",
+              "type": "Classic",
+              "price": "$10",
+              "rating": 4.8,
+              "ratingCount": 230,
+              "description": "Whatever"
+            },
+            {
+              "imageUrl": "https://s26552.pcdn.co/wp-content/uploads/2024/03/coffee.jpeg",
+              "name": "Coffee",
+              "type": "Classic",
+              "price": "$10",
+              "rating": 4.8,
+              "ratingCount": 230,
+              "description": "Whatever"
+            },
+            {
+              "imageUrl": "https://s26552.pcdn.co/wp-content/uploads/2024/03/coffee.jpeg",
+              "name": "Coffee",
+              "type": "Classic",
+              "price": "$10",
+              "rating": 4.8,
+              "ratingCount": 230,
+              "description": "Whatever"
+            },
+            {
+              "imageUrl": "https://s26552.pcdn.co/wp-content/uploads/2024/03/coffee.jpeg",
+              "name": "Coffee",
+              "type": "Classic",
+              "price": "$10",
+              "rating": 4.8,
+              "ratingCount": 230,
+              "description": "Whatever"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "nav-bar",
+      "defaultState": 0,
+      "modifiers": [
+        {
+          "type": "padding",
+          "bottom": 26
+        }
+      ]
+    }
+  ]
+}
