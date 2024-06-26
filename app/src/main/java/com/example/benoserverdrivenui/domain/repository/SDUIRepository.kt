@@ -6,4 +6,5 @@ import com.google.gson.JsonObject
 interface SDUIRepository {
 //    suspend fun getHome(): JsonObject
     suspend fun getHomeScreen(): Component
+    suspend fun getDetailsScreen(): Component
 }

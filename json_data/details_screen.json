@@ -1,0 +1,107 @@
+{
+  "type": "box-container",
+  "modifiers": [
+    {
+      "type": "fillMaxSize"
+    }
+  ],
+  "items": [
+    {
+      "type": "box",
+      "modifiers": [
+        {
+          "type": "fillMaxSize"
+        },
+        {
+          "type": "background",
+          "color": "FF1BAE76"
+        },
+        {
+          "type": "statusBarsPadding"
+        },
+        {
+          "type": "padding",
+          "top": 66
+        },
+        {
+          "type": "background",
+          "color": "FFEFEFEF"
+        }
+      ]
+    },
+    {
+      "type": "column",
+      "modifiers": [
+        {
+          "type": "fillMaxSize"
+        },
+        {
+          "type": "padding",
+          "start": 24,
+          "end": 24
+        },
+        {
+          "type": "safeDrawingPadding"
+        }
+      ],
+      "items": [
+        {
+          "type": "detail-top-bar",
+          "modifiers": [
+            {
+              "type": "height",
+              "height": 66
+            }
+          ]
+        },
+        {
+          "type": "product-details",
+          "product": {
+            "imageUrl": "https://s26552.pcdn.co/wp-content/uploads/2024/03/coffee.jpeg",
+            "name": "Coffee",
+            "type": "Classic",
+            "price": "$10",
+            "rating": 4.8,
+            "ratingCount": 230,
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus blandit malesuada dui, vel condimentum libero porttitor id. Nulla eleifend arcu metus, vel hendrerit sapien ultricies ac. Ut tristique quis lorem id feugiat. Integer efficitur dignissim nulla, vitae ornare ligula mollis eu. Morbi euismod pretium tempor. Ut et rutrum orci. Phasellus nisi arcu, fermentum sit amet mollis in, laoreet non dui. Phasellus sit amet ex vitae sem ultricies tristique. In porttitor ipsum tellus, sit amet pharetra nulla bibendum vel. In pellentesque magna eget urna euismod, ac pretium risus ultrices. Donec eget."
+          },
+          "modifiers": [
+            {
+              "type": "padding",
+              "top": 24
+            }
+          ]
+        },
+        {
+          "type": "size-box",
+          "modifiers": [
+            {
+              "type": "padding",
+              "top": 20
+            }
+          ]
+        },
+        {
+          "type": "buy-now-row",
+          "price": "$10",
+          "modifiers": [
+            {
+              "type": "padding",
+              "top": 24
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "nav-bar",
+      "defaultState": 0,
+      "modifiers": [
+        {
+          "type": "padding",
+          "bottom": 26
+        }
+      ]
+    }
+  ]
+}

@@ -8,7 +8,7 @@ import androidx.compose.ui.Modifier
 import com.example.benoserverdrivenui.NavBar
 
 class NavBar(
-    private val defaultState: Int = 2
+    private val defaultState: Int = 0
 ) : Component() {
     @Composable
     override fun Content() {

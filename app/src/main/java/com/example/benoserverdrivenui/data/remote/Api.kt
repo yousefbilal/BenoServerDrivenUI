@@ -11,4 +11,7 @@ interface Api {
     @GET("home_screen.json")
     suspend fun getHomeScreen(): Component
 
+    @GET("details_screen.json")
+    suspend fun getDetailsScreen(): Component
+
 }

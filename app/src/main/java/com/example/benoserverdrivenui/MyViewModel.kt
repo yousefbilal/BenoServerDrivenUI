@@ -18,12 +18,19 @@ class MyViewModel @Inject constructor(
         private set
 
     init {
-        getHome()
+        getDetailsScreen()
     }
 
-    private fun getHome() {
+    private fun getHomeScreen() {
         viewModelScope.launch(Dispatchers.IO) {
             val res = repository.getHomeScreen()
+            data.value = res
+        }
+    }
+
+    private fun getDetailsScreen() {
+        viewModelScope.launch(Dispatchers.IO) {
+            val res = repository.getDetailsScreen()
             data.value = res
         }
     }

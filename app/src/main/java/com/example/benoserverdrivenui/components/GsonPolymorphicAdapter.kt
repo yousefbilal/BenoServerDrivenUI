@@ -35,7 +35,7 @@ class ComponentPolymorphicAdapter {
         .registerSubtype(Box::class.java, "box")
         .registerSubtype(NavBar::class.java, "nav-bar")
         .registerSubtype(DetailTopAppBar::class.java, "detail-top-bar")
-        .registerSubtype(ProductsDetails::class.java, "products-details")
+        .registerSubtype(ProductsDetails::class.java, "product-details")
         .registerSubtype(SizeBox::class.java, "size-box")
         .registerSubtype(BuyNowRow::class.java, "buy-now-row")
 
