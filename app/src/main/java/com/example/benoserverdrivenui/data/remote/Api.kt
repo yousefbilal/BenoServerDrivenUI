@@ -14,4 +14,7 @@ interface Api {
     @GET("details_screen.json")
     suspend fun getDetailsScreen(): Component
 
+    @GET("cup_screen.json")
+    suspend fun getCupScreen(): Component
+
 }

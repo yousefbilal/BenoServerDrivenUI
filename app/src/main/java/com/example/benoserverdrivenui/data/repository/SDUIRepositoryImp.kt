@@ -20,4 +20,9 @@ class SDUIRepositoryImp(
     override suspend fun getDetailsScreen(): Component {
         return api.getDetailsScreen()
     }
+
+    override suspend fun getCupScreen(): Component {
+        return api.getCupScreen()
+    }
+
 }

@@ -18,7 +18,7 @@ class MyViewModel @Inject constructor(
         private set
 
     init {
-        getDetailsScreen()
+        getCupScreen()
     }
 
     private fun getHomeScreen() {
@@ -31,6 +31,13 @@ class MyViewModel @Inject constructor(
     private fun getDetailsScreen() {
         viewModelScope.launch(Dispatchers.IO) {
             val res = repository.getDetailsScreen()
+            data.value = res
+        }
+    }
+
+    private fun getCupScreen() {
+        viewModelScope.launch(Dispatchers.IO) {
+            val res = repository.getCupScreen()
             data.value = res
         }
     }

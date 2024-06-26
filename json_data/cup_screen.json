@@ -47,8 +47,7 @@
           "page": "My Cup"
         },
         {
-          "type": "search-bar",
-          "placeHolder": "Search Coffee",
+          "type": "top-nav-bar",
           "modifiers": [
             {
               "type": "padding",
@@ -57,97 +56,34 @@
           ]
         },
         {
-          "type": "filter-list",
+          "type": "address-box",
+          "address": {
+            "apartment": "2nd Door Emi",
+            "fullAddress": "Carnation St., Sunflower Village, Brgy. Garden"
+          },
+          "modifiers": [
+            {
+              "type": "padding",
+              "top": 24
+            }
+          ]
+        },
+        {
+          "type": "payment",
+          "product": {
+            "imageUrl": "https://s26552.pcdn.co/wp-content/uploads/2024/03/coffee.jpeg",
+            "name": "Coffee",
+            "type": "Classic",
+            "price": "$10",
+            "rating": 4.8,
+            "ratingCount": 230,
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus blandit malesuada dui, vel condimentum libero porttitor id. Nulla eleifend arcu metus, vel hendrerit sapien ultricies ac. Ut tristique quis lorem id feugiat. Integer efficitur dignissim nulla, vitae ornare ligula mollis eu. Morbi euismod pretium tempor. Ut et rutrum orci. Phasellus nisi arcu, fermentum sit amet mollis in, laoreet non dui. Phasellus sit amet ex vitae sem ultricies tristique. In porttitor ipsum tellus, sit amet pharetra nulla bibendum vel. In pellentesque magna eget urna euismod, ac pretium risus ultrices. Donec eget."
+          },
           "modifiers": [
             {
               "type": "padding",
               "top": 24,
               "bottom": 24
-            }
-          ],
-          "items": [
-            {
-              "name": "Coffee"
-            },
-            {
-              "name": "Tea"
-            },
-            {
-              "name": "Latte"
-            },
-            {
-              "name": "Cappuccino"
-            },
-            {
-              "name": "Espresso"
-            },
-            {
-              "name": "Mocha"
-            },
-            {
-              "name": "Macchiato"
-            },
-            {
-              "name": "Americano"
-            },
-            {
-              "name": "Ristretto"
-            }
-          ]
-        },
-        {
-          "type": "products-grid",
-          "modifiers": [
-            {
-              "type": "padding",
-              "bottom": 120
-            }
-          ],
-          "items": [
-            {
-              "imageUrl": "https://s26552.pcdn.co/wp-content/uploads/2024/03/coffee.jpeg",
-              "name": "Coffee",
-              "type": "Classic",
-              "price": "$10",
-              "rating": 4.8,
-              "ratingCount": 230,
-              "description": "Whatever"
-            },
-            {
-              "imageUrl": "https://s26552.pcdn.co/wp-content/uploads/2024/03/coffee.jpeg",
-              "name": "Coffee",
-              "type": "Classic",
-              "price": "$10",
-              "rating": 4.8,
-              "ratingCount": 230,
-              "description": "Whatever"
-            },
-            {
-              "imageUrl": "https://s26552.pcdn.co/wp-content/uploads/2024/03/coffee.jpeg",
-              "name": "Coffee",
-              "type": "Classic",
-              "price": "$10",
-              "rating": 4.8,
-              "ratingCount": 230,
-              "description": "Whatever"
-            },
-            {
-              "imageUrl": "https://s26552.pcdn.co/wp-content/uploads/2024/03/coffee.jpeg",
-              "name": "Coffee",
-              "type": "Classic",
-              "price": "$10",
-              "rating": 4.8,
-              "ratingCount": 230,
-              "description": "Whatever"
-            },
-            {
-              "imageUrl": "https://s26552.pcdn.co/wp-content/uploads/2024/03/coffee.jpeg",
-              "name": "Coffee",
-              "type": "Classic",
-              "price": "$10",
-              "rating": 4.8,
-              "ratingCount": 230,
-              "description": "Whatever"
             }
           ]
         }
