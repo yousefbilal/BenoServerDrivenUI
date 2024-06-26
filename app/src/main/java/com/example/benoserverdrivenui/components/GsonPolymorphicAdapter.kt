@@ -1,12 +1,23 @@
 package com.example.benoserverdrivenui.components
 
+import com.example.benoserverdrivenui.components.details_screen_components.BuyNowRow
+import com.example.benoserverdrivenui.components.details_screen_components.DetailTopAppBar
+import com.example.benoserverdrivenui.components.details_screen_components.ProductsDetails
+import com.example.benoserverdrivenui.components.details_screen_components.SizeBox
+import com.example.benoserverdrivenui.components.home_components.FilterList
+import com.example.benoserverdrivenui.components.home_components.ProductsGrid
+import com.example.benoserverdrivenui.components.home_components.SearchBar
 import com.example.benoserverdrivenui.components.modifiers.BackgroundModifier
 import com.example.benoserverdrivenui.components.modifiers.FillMaxHeightModifier
 import com.example.benoserverdrivenui.components.modifiers.FillMaxSizeModifier
 import com.example.benoserverdrivenui.components.modifiers.FillMaxWidthModifier
+import com.example.benoserverdrivenui.components.modifiers.HeightModifier
 import com.example.benoserverdrivenui.components.modifiers.PaddingModifier
+import com.example.benoserverdrivenui.components.modifiers.SafeDrawingPadding
 import com.example.benoserverdrivenui.components.modifiers.SduiModifier
+import com.example.benoserverdrivenui.components.modifiers.SizeModifier
 import com.example.benoserverdrivenui.components.modifiers.StatusBarsPaddingModifier
+import com.example.benoserverdrivenui.components.modifiers.WidthModifier
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.typeadapters.RuntimeTypeAdapterFactory
@@ -23,6 +34,10 @@ class ComponentPolymorphicAdapter {
         .registerSubtype(TopAppBar::class.java, "top-app-bar")
         .registerSubtype(Box::class.java, "box")
         .registerSubtype(NavBar::class.java, "nav-bar")
+        .registerSubtype(DetailTopAppBar::class.java, "detail-top-bar")
+        .registerSubtype(ProductsDetails::class.java, "products-details")
+        .registerSubtype(SizeBox::class.java, "size-box")
+        .registerSubtype(BuyNowRow::class.java, "buy-now-row")
 
     private val modifierAdapterFactory = RuntimeTypeAdapterFactory
         .of(SduiModifier::class.java, "type")
@@ -32,6 +47,10 @@ class ComponentPolymorphicAdapter {
         .registerSubtype(FillMaxHeightModifier::class.java, "fillMaxHeight")
         .registerSubtype(PaddingModifier::class.java, "padding")
         .registerSubtype(StatusBarsPaddingModifier::class.java, "statusBarsPadding")
+        .registerSubtype(SafeDrawingPadding::class.java, "safeDrawingPadding")
+        .registerSubtype(SizeModifier::class.java, "size")
+        .registerSubtype(HeightModifier::class.java, "height")
+        .registerSubtype(WidthModifier::class.java, "width")
 
     fun getGson(): Gson {
         return GsonBuilder()

@@ -1,6 +1,7 @@
 package com.example.benoserverdrivenui.components.modifiers
 
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.safeDrawingPadding
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -22,5 +23,12 @@ class StatusBarsPaddingModifier : SduiModifier {
     @Composable
     override fun apply(modifier: Modifier) : Modifier{
         return modifier.statusBarsPadding()
+    }
+}
+
+class SafeDrawingPadding : SduiModifier {
+    @Composable
+    override fun apply(modifier: Modifier) : Modifier{
+        return modifier.safeDrawingPadding()
     }
 }
