@@ -100,7 +100,7 @@ fun CupScreen() {
             modifier = Modifier
                 .align(Alignment.BottomCenter)
                 .padding(bottom = 26.dp),
-            defaultSate = 1,
+//            selectedItemIndex = 1,
             onClick = {}
 
         )

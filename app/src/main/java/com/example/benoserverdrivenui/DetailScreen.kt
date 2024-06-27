@@ -113,7 +113,7 @@ fun DetailScreen() {
         NavBar(modifier = Modifier
             .align(Alignment.BottomCenter)
             .padding(bottom = 26.dp),
-            defaultSate = 0,
+//            selectedItemIndex = 0,
             onClick = {/*TODO*/ }
         )
     }

@@ -6,6 +6,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.navigation.NavController
 import com.example.benoserverdrivenui.SearchBar
 import com.example.benoserverdrivenui.components.Component
 
@@ -13,7 +14,7 @@ class SearchBar(
     private val placeHolder: String
 ) : Component() {
     @Composable
-    override fun Content() {
+    override fun Content(navController: NavController) {
         var text by remember {
             mutableStateOf("")
         }

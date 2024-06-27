@@ -152,16 +152,6 @@
           ]
         }
       ]
-    },
-    {
-      "type": "nav-bar",
-      "defaultState": 0,
-      "modifiers": [
-        {
-          "type": "padding",
-          "bottom": 26
-        }
-      ]
     }
   ]
 }

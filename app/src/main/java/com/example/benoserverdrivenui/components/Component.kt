@@ -2,6 +2,7 @@ package com.example.benoserverdrivenui.components
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.navigation.NavController
 import com.example.benoserverdrivenui.components.modifiers.SduiModifier
 
 abstract class Component() {
@@ -10,11 +11,10 @@ abstract class Component() {
         get() = modifiers ?: emptyList()
 
     @Composable
-    abstract fun Content()
+    abstract fun Content(navController: NavController)
 
     @Composable
     fun Modifier.applyModifiers(modifiers: List<SduiModifier>) : Modifier {
-        println("$this $modifiers")
         val modifierChain = modifiers.fold(Modifier as Modifier) { acc, modifier ->
             modifier.apply(acc)
         }

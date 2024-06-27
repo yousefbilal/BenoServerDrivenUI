@@ -100,19 +100,19 @@ fun NavItem(
 }
 
 @Composable
-fun NavBar(modifier: Modifier = Modifier, onClick: (BottomNavigationItem) -> Unit, defaultSate: Int) {
+fun NavBar(modifier: Modifier = Modifier, onClick: (BottomNavigationItem) -> Unit,) {
     var selectedItemIndex by remember {
-        mutableIntStateOf(defaultSate)
+        mutableIntStateOf(0)
     }
     val items = listOf(
         BottomNavigationItem(
-            title = "Home",
+            title = Screen.Home.route,
             icon = Icons.Outlined.Home,
             selectedColor = White,
             unselectedColor = FontDarkGrey
         ),
         BottomNavigationItem(
-            title = "Shop",
+            title = Screen.Cup.route,
             icon = Icons.Outlined.ShoppingCart,
             selectedColor = White,
             unselectedColor = FontDarkGrey,
