@@ -1,4 +1,4 @@
-package com.example.benoserverdrivenui
+package com.example.benoserverdrivenui.screens
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -21,7 +21,6 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.FavoriteBorder
-import androidx.compose.material.icons.rounded.ArrowBack
 import androidx.compose.material.icons.rounded.KeyboardArrowLeft
 import androidx.compose.material.icons.rounded.Star
 import androidx.compose.material3.Button
@@ -55,6 +54,8 @@ import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
+import com.example.benoserverdrivenui.NavBar
+import com.example.benoserverdrivenui.Product
 import com.example.benoserverdrivenui.ui.theme.FontBlack
 import com.example.benoserverdrivenui.ui.theme.FontDarkGrey
 import com.example.benoserverdrivenui.ui.theme.FontLightGrey
@@ -110,12 +111,12 @@ fun DetailScreen() {
                 price = product.price
             )
         }
-        NavBar(modifier = Modifier
-            .align(Alignment.BottomCenter)
-            .padding(bottom = 26.dp),
-//            selectedItemIndex = 0,
-            onClick = {/*TODO*/ }
-        )
+//        NavBar(modifier = Modifier
+//            .align(Alignment.BottomCenter)
+//            .padding(bottom = 26.dp),
+////            selectedItemIndex = 0,
+//            onClick = {/*TODO*/ }
+//        )
     }
 }
 

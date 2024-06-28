@@ -1,18 +1,17 @@
 package com.example.benoserverdrivenui.components.details_screen_components
 
-import androidx.compose.foundation.layout.height
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.example.benoserverdrivenui.DetailTopAppBar
+import com.example.benoserverdrivenui.screens.DetailTopAppBar
+import com.example.benoserverdrivenui.MyViewModel
 import com.example.benoserverdrivenui.components.Component
 
 class DetailTopAppBar : Component() {
     @Composable
-    override fun Content(navController: NavController) {
+    override fun Content(modifier: Modifier, viewModel: MyViewModel, navController: NavController) {
         DetailTopAppBar(
-            modifier = Modifier.applyModifiers(_modifiers),
+            modifier = modifier.applyModifiers(_modifiers),
             onClickFavorite = { /*TODO*/ },
             onClickBack = { navController.popBackStack() })
     }

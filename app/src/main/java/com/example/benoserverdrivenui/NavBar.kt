@@ -3,7 +3,6 @@ package com.example.benoserverdrivenui
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.height
@@ -18,7 +17,6 @@ import androidx.compose.material3.Badge
 import androidx.compose.material3.BadgedBox
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -42,14 +40,13 @@ import com.example.benoserverdrivenui.ui.theme.sfProTextFontFamily
 
 
 data class BottomNavigationItem(
-    val title: String,
+    val screen: Screen,
     val icon: ImageVector,
     val selectedColor: Color,
     val unselectedColor: Color,
     val badgeCount: Int? = null
 )
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun NavItem(
     modifier: Modifier = Modifier,
@@ -57,7 +54,7 @@ fun NavItem(
     isSelected: Boolean,
     badgeCount: Int?,
     icon: ImageVector,
-    title: String,
+    screen: Screen,
     selectedColor: Color,
     unselectedColor: Color
 ) {
@@ -69,13 +66,15 @@ fun NavItem(
         onClick = { onClick() },
         contentPadding = PaddingValues(0.dp),
         shape = RoundedCornerShape(20.dp),
-        colors = ButtonDefaults.buttonColors(if(isSelected) Green else White)
+        colors = ButtonDefaults.buttonColors(if (isSelected) Green else White)
 //        contentAlignment = Alignment.Center,
     ) {
         BadgedBox(badge = {
             if (badgeCount != null) {
                 Badge(
-                    containerColor = Red, contentColor = White, modifier = Modifier.border(1.dp, White, RoundedCornerShape(50))
+                    containerColor = Red,
+                    contentColor = White,
+                    modifier = Modifier.border(1.dp, White, RoundedCornerShape(50))
                 ) {
                     Text(
                         text = badgeCount.toString(),
@@ -87,45 +86,46 @@ fun NavItem(
         }) {
             Icon(
                 imageVector = icon,
-                contentDescription = title,
+                contentDescription = "icon",
                 tint = if (isSelected) {
                     selectedColor
                 } else {
                     unselectedColor
                 }
-
             )
         }
     }
 }
 
 @Composable
-fun NavBar(modifier: Modifier = Modifier, onClick: (BottomNavigationItem) -> Unit,) {
-    var selectedItemIndex by remember {
-        mutableIntStateOf(0)
-    }
+fun NavBar(
+    modifier: Modifier = Modifier,
+    selectedItemIndex: Int,
+    onSelectedItemChange: (Int) -> Unit,
+    onClick: (BottomNavigationItem) -> Unit
+) {
     val items = listOf(
         BottomNavigationItem(
-            title = Screen.Home.route,
+            screen = Screen.Home,
             icon = Icons.Outlined.Home,
             selectedColor = White,
             unselectedColor = FontDarkGrey
         ),
         BottomNavigationItem(
-            title = Screen.Cup.route,
+            screen = Screen.Cup,
             icon = Icons.Outlined.ShoppingCart,
             selectedColor = White,
             unselectedColor = FontDarkGrey,
             badgeCount = 12
         ),
         BottomNavigationItem(
-            title = "Favorite",
+            screen = Screen.Favorite,
             icon = Icons.Outlined.FavoriteBorder,
             selectedColor = White,
             unselectedColor = FontDarkGrey
         ),
         BottomNavigationItem(
-            title = "Notification",
+            screen = Screen.Notification,
             icon = Icons.Outlined.Notifications,
             selectedColor = White,
             unselectedColor = FontDarkGrey
@@ -145,13 +145,13 @@ fun NavBar(modifier: Modifier = Modifier, onClick: (BottomNavigationItem) -> Uni
             NavItem(
                 modifier = Modifier.size(80.dp),
                 onClick = {
-                    selectedItemIndex = index
+                    onSelectedItemChange(index)
                     onClick(item)
                 },
                 isSelected = selectedItemIndex == index,
                 badgeCount = item.badgeCount,
                 icon = item.icon,
-                title = item.title,
+                screen = item.screen,
                 selectedColor = item.selectedColor,
                 unselectedColor = item.unselectedColor
             )

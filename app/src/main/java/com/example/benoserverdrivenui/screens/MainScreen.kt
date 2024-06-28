@@ -1,4 +1,4 @@
-package com.example.benoserverdrivenui
+package com.example.benoserverdrivenui.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -45,6 +45,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
+import com.example.benoserverdrivenui.NavBar
+import com.example.benoserverdrivenui.Product
+import com.example.benoserverdrivenui.R
+import com.example.benoserverdrivenui.TopAppBar
 import com.example.benoserverdrivenui.ui.theme.FontBlack
 import com.example.benoserverdrivenui.ui.theme.FontDarkGrey
 import com.example.benoserverdrivenui.ui.theme.FontLightGrey
@@ -159,14 +163,14 @@ fun Home() {
             ProductsGrid(items = products, onClick = {})
         }
 
-        NavBar(
-            modifier = Modifier
-                .align(Alignment.BottomCenter)
-                .padding(bottom = 26.dp),
-//            selectedItemIndex = 0,
-            onClick = {}
-
-        )
+//        NavBar(
+//            modifier = Modifier
+//                .align(Alignment.BottomCenter)
+//                .padding(bottom = 26.dp),
+////            selectedItemIndex = 0,
+//            onClick = {}
+//
+//        )
 
     }
 }

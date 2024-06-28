@@ -1,6 +1,5 @@
-package com.example.benoserverdrivenui
+package com.example.benoserverdrivenui.screens
 
-import android.icu.math.BigDecimal
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -39,6 +38,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
+import com.example.benoserverdrivenui.NavBar
+import com.example.benoserverdrivenui.Product
+import com.example.benoserverdrivenui.R
+import com.example.benoserverdrivenui.TopAppBar
 import com.example.benoserverdrivenui.ui.theme.FontBlack
 import com.example.benoserverdrivenui.ui.theme.FontLightGrey
 import com.example.benoserverdrivenui.ui.theme.FontMediumGrey
@@ -96,14 +99,14 @@ fun CupScreen() {
 
             Payment(modifier = Modifier.padding(top = 24.dp), product = product, onClick = { /*TODO*/ } )
         }
-        NavBar(
-            modifier = Modifier
-                .align(Alignment.BottomCenter)
-                .padding(bottom = 26.dp),
-//            selectedItemIndex = 1,
-            onClick = {}
-
-        )
+//        NavBar(
+//            modifier = Modifier
+//                .align(Alignment.BottomCenter)
+//                .padding(bottom = 26.dp),
+////            selectedItemIndex = 1,
+//            onClick = {}
+//
+//        )
     }
 }
 

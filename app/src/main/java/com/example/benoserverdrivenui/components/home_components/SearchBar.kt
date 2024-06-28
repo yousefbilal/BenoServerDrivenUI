@@ -7,19 +7,20 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
-import com.example.benoserverdrivenui.SearchBar
+import com.example.benoserverdrivenui.MyViewModel
+import com.example.benoserverdrivenui.screens.SearchBar
 import com.example.benoserverdrivenui.components.Component
 
 class SearchBar(
     private val placeHolder: String
 ) : Component() {
     @Composable
-    override fun Content(navController: NavController) {
+    override fun Content(modifier: Modifier, viewModel: MyViewModel, navController: NavController) {
         var text by remember {
             mutableStateOf("")
         }
         SearchBar(
-            modifier = Modifier.applyModifiers(_modifiers),
+            modifier = modifier.applyModifiers(_modifiers),
             placeHolder = placeHolder,
             value = text,
             onValueChange = { text = it })

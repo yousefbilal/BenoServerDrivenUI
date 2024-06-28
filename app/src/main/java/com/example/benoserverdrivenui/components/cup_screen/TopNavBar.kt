@@ -1,21 +1,20 @@
 package com.example.benoserverdrivenui.components.cup_screen
 
-import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.example.benoserverdrivenui.TopNavBar
+import com.example.benoserverdrivenui.MyViewModel
+import com.example.benoserverdrivenui.screens.TopNavBar
 import com.example.benoserverdrivenui.components.Component
 
 class TopNavBar(
     val currentIndex: Int = 0
 ) : Component() {
     @Composable
-    override fun Content(navController: NavController) {
+    override fun Content(modifier: Modifier, viewModel: MyViewModel, navController: NavController) {
         TopNavBar(
             currentIndex = currentIndex,
-            modifier = Modifier.applyModifiers(_modifiers)
+            modifier = modifier.applyModifiers(_modifiers)
         )
     }
 }

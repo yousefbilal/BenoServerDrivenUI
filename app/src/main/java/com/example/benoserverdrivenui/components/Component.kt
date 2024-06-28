@@ -3,6 +3,7 @@ package com.example.benoserverdrivenui.components
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
+import com.example.benoserverdrivenui.MyViewModel
 import com.example.benoserverdrivenui.components.modifiers.SduiModifier
 
 abstract class Component() {
@@ -11,7 +12,7 @@ abstract class Component() {
         get() = modifiers ?: emptyList()
 
     @Composable
-    abstract fun Content(navController: NavController)
+    abstract fun Content(modifier: Modifier, viewModel: MyViewModel, navController: NavController)
 
     @Composable
     fun Modifier.applyModifiers(modifiers: List<SduiModifier>) : Modifier {

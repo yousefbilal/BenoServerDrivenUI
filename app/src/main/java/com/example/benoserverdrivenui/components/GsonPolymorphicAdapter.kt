@@ -21,6 +21,7 @@ import com.example.benoserverdrivenui.components.modifiers.SduiModifier
 import com.example.benoserverdrivenui.components.modifiers.SizeModifier
 import com.example.benoserverdrivenui.components.modifiers.StatusBarsPaddingModifier
 import com.example.benoserverdrivenui.components.modifiers.WidthModifier
+import com.example.benoserverdrivenui.components.modifiers.ZIndex
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.typeadapters.RuntimeTypeAdapterFactory
@@ -57,6 +58,7 @@ class ComponentPolymorphicAdapter {
         .registerSubtype(SizeModifier::class.java, "size")
         .registerSubtype(HeightModifier::class.java, "height")
         .registerSubtype(WidthModifier::class.java, "width")
+        .registerSubtype(ZIndex::class.java, "zIndex")
 
     fun getGson(): Gson {
         return GsonBuilder()

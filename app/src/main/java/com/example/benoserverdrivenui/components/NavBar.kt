@@ -6,20 +6,19 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
+import com.example.benoserverdrivenui.MyViewModel
 import com.example.benoserverdrivenui.NavBar
-import com.example.benoserverdrivenui.Screen
 
 class NavBar(
-    private val defaultState: Int
 ) : Component() {
     @Composable
-    override fun Content(navController: NavController) {
+    override fun Content(modifier: Modifier, viewModel: MyViewModel, navController: NavController) {
         Box(modifier = Modifier.fillMaxSize()) {
-            println(this)
             NavBar(
-                onClick = { navController.navigate(it.title) },
-//                selectedItemIndex = defaultState,
-                modifier = Modifier
+                onClick = { navController.navigate(it.screen) },
+                selectedItemIndex = viewModel.selectedNavBarItem,
+                onSelectedItemChange = viewModel::onSelectedNavBarItemChange,
+                modifier = modifier
                     .align(Alignment.BottomCenter)
                     .applyModifiers(_modifiers)
             )

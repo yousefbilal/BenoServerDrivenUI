@@ -1,7 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
-
+    alias(libs.plugins.kotlin.serialization)
     //Dagger-Hilt
     kotlin("kapt")
     id("com.google.dagger.hilt.android")
@@ -88,6 +88,9 @@ dependencies {
     kapt("com.google.dagger:hilt-android-compiler:2.51.1")
     kapt("androidx.hilt:hilt-compiler:1.2.0")
     implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
+
+    implementation(libs.navigation.compose)
+    implementation(libs.kotlinx.serialization.json)
 
 }
 
