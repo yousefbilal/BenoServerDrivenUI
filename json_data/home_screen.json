@@ -47,8 +47,45 @@
           "page": "Home"
         },
         {
+          "type": "lazy-row",
+          "modifiers": [
+            {
+              "type": "fillMaxWidth"
+            },
+            {
+              "type": "height",
+              "height": 140
+            }
+          ],
+          "spacedBy": 20,
+          "items": [
+            {
+              "type": "image",
+              "modifiers": [
+                {
+                  "type": "fillMaxHeight"
+                }
+              ],
+              "url": "http://10.0.2.2:8000/sale.png",
+              "contentDescription": "sale",
+              "scaling": "fill-height"
+            },
+            {
+              "type": "image",
+              "modifiers": [
+                {
+                  "type": "fillMaxHeight"
+                }
+              ],
+              "url": "http://10.0.2.2:8000/img.png",
+              "contentDescription": "banner",
+              "scaling": "fill-height"
+            }
+          ]
+        },
+        {
           "type": "search-bar",
-          "placeHolder": "Search Coffee",
+          "placeHolder": "Search Coffee ☕",
           "modifiers": [
             {
               "type": "padding",
@@ -57,44 +94,12 @@
           ]
         },
         {
-          "type": "filter-list",
-          "modifiers": [
-            {
-              "type": "padding",
-              "top": 24,
-              "bottom": 24
-            }
-          ],
-          "items": [
-            {
-              "name": "Cappuccino"
-            },
-            {
-              "name": "Latte"
-            },
-            {
-              "name": "Espresso"
-            },
-            {
-              "name": "Mocha"
-            },
-            {
-              "name": "Macchiato"
-            },
-            {
-              "name": "Americano"
-            },
-            {
-              "name": "Ristretto"
-            }
-          ]
-        },
-        {
           "type": "products-grid",
           "modifiers": [
             {
               "type": "padding",
-              "bottom": 120
+              "bottom": 120,
+              "top": 24
             }
           ],
           "items": [

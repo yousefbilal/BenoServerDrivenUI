@@ -38,6 +38,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
@@ -45,7 +46,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
-import com.example.benoserverdrivenui.NavBar
 import com.example.benoserverdrivenui.Product
 import com.example.benoserverdrivenui.R
 import com.example.benoserverdrivenui.TopAppBar
@@ -202,12 +202,14 @@ fun ProductsGrid(
 }
 
 
-
-
 data class CoffeeFilter(val name: String)
 
 @Composable
-fun FilterList(modifier: Modifier = Modifier, items: List<CoffeeFilter>, onClick: (CoffeeFilter) -> Unit) {
+fun FilterList(
+    modifier: Modifier = Modifier,
+    items: List<CoffeeFilter>,
+    onClick: (CoffeeFilter) -> Unit
+) {
     var selectedItemIndex by remember {
         mutableIntStateOf(0)
     }
@@ -338,7 +340,13 @@ fun ProductCard(
 }
 
 @Composable
-fun SearchBar(modifier: Modifier = Modifier, placeHolder: String = "Search Coffee", value: String, onValueChange: (String) -> Unit) {
+fun SearchBar(
+    modifier: Modifier = Modifier,
+    placeHolder: String = "Search Coffee",
+    backgroundColor: Color = Grey,
+    value: String,
+    onValueChange: (String) -> Unit
+) {
     BasicTextField(
         modifier = modifier
             .fillMaxWidth()
@@ -355,7 +363,7 @@ fun SearchBar(modifier: Modifier = Modifier, placeHolder: String = "Search Coffe
                 modifier = Modifier
                     .fillMaxWidth()
                     .clip(RoundedCornerShape(10.dp))
-                    .background(Grey),
+                    .background(backgroundColor),
             ) {
                 Icon(
                     imageVector = Icons.Rounded.Search,

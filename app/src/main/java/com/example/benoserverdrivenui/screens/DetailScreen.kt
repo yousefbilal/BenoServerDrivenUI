@@ -26,6 +26,7 @@ import androidx.compose.material.icons.rounded.Star
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Divider
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -272,7 +273,7 @@ fun ProductDetails(modifier: Modifier = Modifier, product: Product) {
         ProductBox(product = product)
 
 
-        Divider(modifier = Modifier.padding(top = 24.dp, bottom = 10.dp))
+        HorizontalDivider(modifier = Modifier.padding(top = 24.dp, bottom = 10.dp))
 
         Text(
             text = "Description",

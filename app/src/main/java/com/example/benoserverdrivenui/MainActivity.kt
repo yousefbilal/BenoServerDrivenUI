@@ -53,6 +53,7 @@ class MainActivity : ComponentActivity() {
                     LaunchedEffect(key1 = true) {
                         viewModel.getDetailsScreen()
                     }
+
                     uiState.value?.Content(Modifier, viewModel, navController)
                     Column(
                         modifier = Modifier
