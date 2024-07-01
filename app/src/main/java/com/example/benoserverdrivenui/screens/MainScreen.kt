@@ -1,6 +1,5 @@
 package com.example.benoserverdrivenui.screens
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -13,7 +12,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.grid.GridCells
@@ -32,7 +30,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -40,140 +37,19 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.example.benoserverdrivenui.Product
-import com.example.benoserverdrivenui.R
-import com.example.benoserverdrivenui.TopAppBar
 import com.example.benoserverdrivenui.ui.theme.FontBlack
 import com.example.benoserverdrivenui.ui.theme.FontDarkGrey
 import com.example.benoserverdrivenui.ui.theme.FontLightGrey
 import com.example.benoserverdrivenui.ui.theme.Green
 import com.example.benoserverdrivenui.ui.theme.Grey
-import com.example.benoserverdrivenui.ui.theme.LightGrey
 import com.example.benoserverdrivenui.ui.theme.White
 import com.example.benoserverdrivenui.ui.theme.sfProTextFontFamily
-
-
-@Composable
-fun Home() {
-    val products = listOf(
-        Product(
-            imageUrl = "https://s26552.pcdn.co/wp-content/uploads/2024/03/coffee.jpeg",
-            name = "Coffee",
-            type = "Classic",
-            price = "$10",
-            rating = 4.8f,
-            ratingCount = 230,
-            description = "Whatever"
-        ),
-        Product(
-            imageUrl = "https://s26552.pcdn.co/wp-content/uploads/2024/03/coffee.jpeg",
-            name = "Coffee",
-            type = "Classic",
-            price = "$10",
-            rating = 4.8f,
-            ratingCount = 230,
-            description = "Whatever"
-        ),
-        Product(
-            imageUrl = "https://s26552.pcdn.co/wp-content/uploads/2024/03/coffee.jpeg",
-            name = "Coffee",
-            type = "Classic",
-            price = "$10",
-            rating = 4.8f,
-            ratingCount = 230,
-            description = "Whatever"
-        ),
-        Product(
-            imageUrl = "https://s26552.pcdn.co/wp-content/uploads/2024/03/coffee.jpeg",
-            name = "Coffee",
-            type = "Classic",
-            price = "$10",
-            rating = 4.8f,
-            ratingCount = 230,
-            description = "Whatever"
-        ),
-        Product(
-            imageUrl = "https://s26552.pcdn.co/wp-content/uploads/2024/03/coffee.jpeg",
-            name = "Coffee",
-            type = "Classic",
-            price = "$10",
-            rating = 4.8f,
-            ratingCount = 230,
-            description = "Whatever"
-        )
-    )
-    val filters = listOf(
-        CoffeeFilter("Coffee"),
-        CoffeeFilter("Cappuccino"),
-        CoffeeFilter("Tea"),
-        CoffeeFilter("Latte"),
-        CoffeeFilter("Coffee"),
-        CoffeeFilter("Cappuccino"),
-        CoffeeFilter("Tea"),
-        CoffeeFilter("Latte"),
-    )
-
-    var text by remember {
-        mutableStateOf("")
-    }
-    Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(Green)
-            .padding(top = 297.dp)
-            .background(LightGrey)
-    ) {}
-
-    Box(modifier = Modifier.fillMaxSize()) {
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .statusBarsPadding()
-                .padding(horizontal = 24.dp)
-        ) {
-            TopAppBar(
-                page = "Home",
-                onClickMenu = {},
-                onClickProfile = {})
-            SearchBar(
-                value = text,
-                onValueChange = { text = it },
-                modifier = Modifier.padding(top = 10.dp)
-            )
-            Image(
-                painter = painterResource(id = R.drawable.img),
-                contentDescription = "image",
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(top = 24.dp),
-//                    .height(163.dp),
-
-                contentScale = ContentScale.FillWidth
-            )
-
-
-            FilterList(items = filters, onClick = {}, modifier = Modifier.padding(vertical = 24.dp))
-
-            ProductsGrid(items = products, onClick = {})
-        }
-
-//        NavBar(
-//            modifier = Modifier
-//                .align(Alignment.BottomCenter)
-//                .padding(bottom = 26.dp),
-////            selectedItemIndex = 0,
-//            onClick = {}
-//
-//        )
-
-    }
-}
 
 @Composable
 fun ProductsGrid(

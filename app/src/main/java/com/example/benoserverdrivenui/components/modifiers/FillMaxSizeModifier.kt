@@ -6,23 +6,23 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 
-class FillMaxSizeModifier : SduiModifier{
+class FillMaxSizeModifier : SduiModifier {
     @Composable
-    override fun apply(modifier: Modifier) : Modifier {
+    override fun apply(modifier: Modifier): Modifier {
         return modifier.fillMaxSize()
     }
 }
 
-class FillMaxWidthModifier : SduiModifier{
+class FillMaxWidthModifier : SduiModifier {
     @Composable
-    override fun apply(modifier: Modifier) : Modifier {
+    override fun apply(modifier: Modifier): Modifier {
         return modifier.fillMaxWidth()
     }
 }
 
-class FillMaxHeightModifier : SduiModifier{
+class FillMaxHeightModifier : SduiModifier {
     @Composable
-    override fun apply(modifier: Modifier) : Modifier {
+    override fun apply(modifier: Modifier): Modifier {
         return modifier.fillMaxHeight()
     }
 }

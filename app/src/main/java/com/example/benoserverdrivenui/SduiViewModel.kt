@@ -14,7 +14,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class MyViewModel @Inject constructor(
+class SduiViewModel @Inject constructor(
     private val repository: SDUIRepository
 ) : ViewModel() {
     var data = MutableStateFlow<Component?>(null)

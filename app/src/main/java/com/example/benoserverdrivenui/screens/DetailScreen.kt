@@ -9,23 +9,19 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.safeDrawingPadding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.rounded.KeyboardArrowLeft
 import androidx.compose.material.icons.outlined.FavoriteBorder
-import androidx.compose.material.icons.rounded.KeyboardArrowLeft
 import androidx.compose.material.icons.rounded.Star
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.Divider
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
@@ -55,7 +51,6 @@ import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
-import com.example.benoserverdrivenui.NavBar
 import com.example.benoserverdrivenui.Product
 import com.example.benoserverdrivenui.ui.theme.FontBlack
 import com.example.benoserverdrivenui.ui.theme.FontDarkGrey
@@ -63,63 +58,9 @@ import com.example.benoserverdrivenui.ui.theme.FontLightGrey
 import com.example.benoserverdrivenui.ui.theme.FontMediumGrey
 import com.example.benoserverdrivenui.ui.theme.Green
 import com.example.benoserverdrivenui.ui.theme.LightGreen
-import com.example.benoserverdrivenui.ui.theme.LightGrey
 import com.example.benoserverdrivenui.ui.theme.White
 import com.example.benoserverdrivenui.ui.theme.Yellow
 import com.example.benoserverdrivenui.ui.theme.sfProTextFontFamily
-
-
-@Composable
-fun DetailScreen() {
-    val product = Product(
-        imageUrl = "https://s26552.pcdn.co/wp-content/uploads/2024/03/coffee.jpeg",
-        name = "Coffee",
-        type = "Classic",
-        price = "$10",
-        rating = 4.8f,
-        ratingCount = 230,
-        description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus blandit malesuada dui, vel condimentum libero porttitor id. Nulla eleifend arcu metus, vel hendrerit sapien ultricies ac. Ut tristique quis lorem id feugiat. Integer efficitur dignissim nulla, vitae ornare ligula mollis eu. Morbi euismod pretium tempor. Ut et rutrum orci. Phasellus nisi arcu, fermentum sit amet mollis in, laoreet non dui. Phasellus sit amet ex vitae sem ultricies tristique. In porttitor ipsum tellus, sit amet pharetra nulla bibendum vel. In pellentesque magna eget urna euismod, ac pretium risus ultrices. Donec eget."
-    )
-    Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(Green)
-            .statusBarsPadding()
-            .padding(top = 66.dp)
-            .background(LightGrey)
-    ) {}
-    Box(modifier = Modifier.fillMaxSize()) {
-        Column(
-            modifier = Modifier
-                .padding(horizontal = 24.dp)
-                .fillMaxSize()
-                .safeDrawingPadding()
-        ) {
-
-            DetailTopAppBar(
-                modifier = Modifier.height(66.dp),
-                onClickFavorite = { /*TODO*/ },
-                onClickBack = { /*TODO*/ })
-
-
-            ProductDetails(modifier = Modifier.padding(top = 24.dp), product = product)
-
-            SizeBox(modifier = Modifier.padding(top = 20.dp), onClick = { /*TODO*/ })
-
-            BuyNowRow(
-                modifier = Modifier.padding(top = 24.dp),
-                onClick = { /*TODO*/ },
-                price = product.price
-            )
-        }
-//        NavBar(modifier = Modifier
-//            .align(Alignment.BottomCenter)
-//            .padding(bottom = 26.dp),
-////            selectedItemIndex = 0,
-//            onClick = {/*TODO*/ }
-//        )
-    }
-}
 
 @Composable
 fun BuyNowRow(modifier: Modifier = Modifier, price: String, onClick: () -> Unit) {
@@ -165,7 +106,7 @@ fun DetailTopAppBar(
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
         Icon(
-            imageVector = Icons.Rounded.KeyboardArrowLeft,
+            imageVector = Icons.AutoMirrored.Rounded.KeyboardArrowLeft,
             contentDescription = "Back",
             tint = White,
             modifier = Modifier

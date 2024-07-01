@@ -8,18 +8,16 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.outlined.AddCircle
 import androidx.compose.material.icons.outlined.Edit
-import androidx.compose.material3.Divider
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -38,10 +36,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
-import com.example.benoserverdrivenui.NavBar
 import com.example.benoserverdrivenui.Product
 import com.example.benoserverdrivenui.R
-import com.example.benoserverdrivenui.TopAppBar
 import com.example.benoserverdrivenui.ui.theme.FontBlack
 import com.example.benoserverdrivenui.ui.theme.FontLightGrey
 import com.example.benoserverdrivenui.ui.theme.FontMediumGrey
@@ -49,66 +45,6 @@ import com.example.benoserverdrivenui.ui.theme.Green
 import com.example.benoserverdrivenui.ui.theme.LightGrey
 import com.example.benoserverdrivenui.ui.theme.White
 import com.example.benoserverdrivenui.ui.theme.sfProTextFontFamily
-
-
-@Composable
-fun CupScreen() {
-    val product = Product(
-        imageUrl = "https://s26552.pcdn.co/wp-content/uploads/2024/03/coffee.jpeg",
-        name = "Coffee",
-        type = "Classic",
-        price = "$10",
-        rating = 4.8f,
-        ratingCount = 230,
-        description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus blandit malesuada dui, vel condimentum libero porttitor id. Nulla eleifend arcu metus, vel hendrerit sapien ultricies ac. Ut tristique quis lorem id feugiat. Integer efficitur dignissim nulla, vitae ornare ligula mollis eu. Morbi euismod pretium tempor. Ut et rutrum orci. Phasellus nisi arcu, fermentum sit amet mollis in, laoreet non dui. Phasellus sit amet ex vitae sem ultricies tristique. In porttitor ipsum tellus, sit amet pharetra nulla bibendum vel. In pellentesque magna eget urna euismod, ac pretium risus ultrices. Donec eget."
-    )
-    val address = Address(
-        "2nd Door Emi",
-        "Carnation St., Sunflower Village, Brgy. Garden"
-    )
-    Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(Green)
-            .padding(top = 297.dp)
-            .background(LightGrey)
-    ) {}
-
-    Box(modifier = Modifier.fillMaxSize()) {
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .statusBarsPadding()
-                .padding(horizontal = 24.dp)
-        ) {
-            TopAppBar(
-                page = "My Cup",
-                onClickMenu = {},
-                onClickProfile = {})
-
-            TopNavBar(
-                currentIndex = 0,
-                modifier = Modifier.padding(top = 10.dp)
-            ) // controlled by state
-
-            AddressBox(
-                modifier = Modifier.padding(top = 24.dp),
-                address = address,
-                onClickEdit = { /*TODO*/ },
-                onClickAdd = { /*TODO*/ })
-
-            Payment(modifier = Modifier.padding(top = 24.dp), product = product, onClick = { /*TODO*/ } )
-        }
-//        NavBar(
-//            modifier = Modifier
-//                .align(Alignment.BottomCenter)
-//                .padding(bottom = 26.dp),
-////            selectedItemIndex = 1,
-//            onClick = {}
-//
-//        )
-    }
-}
 
 @Composable
 fun Payment(modifier: Modifier = Modifier, product: Product, onClick: () -> Unit) {
@@ -130,16 +66,28 @@ fun Payment(modifier: Modifier = Modifier, product: Product, onClick: () -> Unit
 
 
         Product(product = product, count = count, onCountChange = { count = it })
-        Divider(thickness = 4.dp, color = LightGrey, modifier = Modifier.padding(vertical = 10.dp))
+        HorizontalDivider(
+            modifier = Modifier.padding(vertical = 10.dp),
+            thickness = 4.dp,
+            color = LightGrey
+        )
         PaymentSummary(price = product.price, deliveryFee = "$10", total = totalStr)
-        GreenButton(modifier = Modifier.padding(top = 30.dp), text = "Place Order", onClick = { onClick() })
+        GreenButton(
+            modifier = Modifier.padding(top = 30.dp),
+            text = "Place Order",
+            onClick = { onClick() })
     }
 
 }
 
 
 @Composable
-fun PaymentSummary(modifier: Modifier = Modifier, price: String, deliveryFee:String, total: String) {
+fun PaymentSummary(
+    modifier: Modifier = Modifier,
+    price: String,
+    deliveryFee: String,
+    total: String
+) {
     Column(modifier = modifier.fillMaxWidth(), verticalArrangement = Arrangement.spacedBy(24.dp)) {
         Text(
             text = "Payment Summary",
@@ -147,7 +95,9 @@ fun PaymentSummary(modifier: Modifier = Modifier, price: String, deliveryFee:Str
             color = FontBlack,
             fontWeight = FontWeight(600),
             fontSize = 16.sp,
-            modifier = Modifier.fillMaxWidth().padding(bottom = 6.dp)
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(bottom = 6.dp)
         )
 
 
@@ -155,7 +105,7 @@ fun PaymentSummary(modifier: Modifier = Modifier, price: String, deliveryFee:Str
 
         PaymentSummaryRow(text = "Delivery Fee", value = deliveryFee)
 
-        Divider()
+        HorizontalDivider()
 
         PaymentSummaryRow(text = "Total Payment", value = total)
 

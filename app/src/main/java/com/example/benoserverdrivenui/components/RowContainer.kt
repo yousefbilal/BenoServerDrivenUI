@@ -4,14 +4,18 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
-import com.example.benoserverdrivenui.MyViewModel
+import com.example.benoserverdrivenui.SduiViewModel
 
 class RowContainer(
     private val items: List<Component>
 ) : Component() {
     @Composable
-    override fun Content(modifier: Modifier, viewModel: MyViewModel, navController: NavController) {
-        Row (
+    override fun Content(
+        modifier: Modifier,
+        viewModel: SduiViewModel,
+        navController: NavController
+    ) {
+        Row(
             modifier = modifier.applyModifiers(_modifiers)
         ) {
             items.forEach {

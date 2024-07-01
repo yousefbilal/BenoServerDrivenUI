@@ -5,7 +5,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.navigation.NavController
 import coil.compose.AsyncImage
-import com.example.benoserverdrivenui.MyViewModel
+import com.example.benoserverdrivenui.SduiViewModel
 import com.google.gson.annotations.SerializedName
 
 class Image(
@@ -14,7 +14,11 @@ class Image(
     private val scaling: ScaleType
 ) : Component() {
     @Composable
-    override fun Content(modifier: Modifier, viewModel: MyViewModel, navController: NavController) {
+    override fun Content(
+        modifier: Modifier,
+        viewModel: SduiViewModel,
+        navController: NavController
+    ) {
         AsyncImage(
             modifier = modifier.applyModifiers(_modifiers),
             model = url,

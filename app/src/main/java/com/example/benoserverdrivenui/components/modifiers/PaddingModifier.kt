@@ -14,21 +14,21 @@ class PaddingModifier(
     private val end: Int = 0
 ) : SduiModifier {
     @Composable
-    override fun apply(modifier: Modifier) : Modifier{
+    override fun apply(modifier: Modifier): Modifier {
         return modifier.padding(start.dp, top.dp, end.dp, bottom.dp)
     }
 }
 
 class StatusBarsPaddingModifier : SduiModifier {
     @Composable
-    override fun apply(modifier: Modifier) : Modifier{
+    override fun apply(modifier: Modifier): Modifier {
         return modifier.statusBarsPadding()
     }
 }
 
 class SafeDrawingPadding : SduiModifier {
     @Composable
-    override fun apply(modifier: Modifier) : Modifier{
+    override fun apply(modifier: Modifier): Modifier {
         return modifier.safeDrawingPadding()
     }
 }

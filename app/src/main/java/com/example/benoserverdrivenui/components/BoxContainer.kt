@@ -4,16 +4,20 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
-import com.example.benoserverdrivenui.MyViewModel
+import com.example.benoserverdrivenui.SduiViewModel
 
 class BoxContainer(
     private val items: List<Component>
 ) : Component() {
     @Composable
-    override fun Content(modifier: Modifier, viewModel: MyViewModel, navController: NavController) {
-        Box (
+    override fun Content(
+        modifier: Modifier,
+        viewModel: SduiViewModel,
+        navController: NavController
+    ) {
+        Box(
             modifier = modifier.applyModifiers(_modifiers)
-        ){
+        ) {
             items.forEach {
                 it.Content(Modifier, viewModel, navController)
             }

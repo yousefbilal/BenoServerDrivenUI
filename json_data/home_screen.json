@@ -104,7 +104,7 @@
           ],
           "items": [
             {
-              "imageUrl": "https://s26552.pcdn.co/wp-content/uploads/2024/03/coffee.jpeg",
+              "imageUrl": "https://img.freepik.com/premium-photo/close-up-cup-cappuccino-vintage-style_759575-5696.jpg",
               "name": "Cappuccino",
               "type": "Classic",
               "price": "$10",
@@ -122,7 +122,7 @@
               "description": "Whatever"
             },
             {
-              "imageUrl": "https://static6.depositphotos.com/1078289/570/i/950/depositphotos_5701948-stock-photo-chocolate-cappuccino-time-cup-of.jpg",
+              "imageUrl": "https://cdn.sanity.io/images/t3ffnogl/production/e3bc1417f71e443538984ed648ec403e69b03286-440x245.png",
               "name": "Cappuccino",
               "type": "with Chocolate",
               "price": "$13",

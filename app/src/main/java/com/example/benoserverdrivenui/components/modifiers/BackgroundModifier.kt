@@ -10,7 +10,7 @@ class BackgroundModifier(
 ) : SduiModifier {
 
     @Composable
-    override fun apply(modifier: Modifier) : Modifier {
+    override fun apply(modifier: Modifier): Modifier {
         return modifier.background(Color(color.toLong(16)))
     }
 }

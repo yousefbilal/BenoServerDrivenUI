@@ -6,13 +6,16 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
-import com.example.benoserverdrivenui.MyViewModel
 import com.example.benoserverdrivenui.NavBar
+import com.example.benoserverdrivenui.SduiViewModel
 
-class NavBar(
-) : Component() {
+class NavBar : Component() {
     @Composable
-    override fun Content(modifier: Modifier, viewModel: MyViewModel, navController: NavController) {
+    override fun Content(
+        modifier: Modifier,
+        viewModel: SduiViewModel,
+        navController: NavController
+    ) {
         Box(modifier = Modifier.fillMaxSize()) {
             NavBar(
                 onClick = { navController.navigate(it.screen) },
