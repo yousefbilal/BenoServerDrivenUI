@@ -1,10 +1,10 @@
 package com.example.benoserverdrivenui.di
 
 
-import com.example.benoserverdrivenui.components.ComponentPolymorphicAdapter
 import com.example.benoserverdrivenui.data.remote.Api
 import com.example.benoserverdrivenui.data.repository.SDUIRepositoryImp
 import com.example.benoserverdrivenui.domain.repository.SDUIRepository
+import com.example.benoserverdrivenui.sdui.components.ComponentPolymorphicAdapter
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

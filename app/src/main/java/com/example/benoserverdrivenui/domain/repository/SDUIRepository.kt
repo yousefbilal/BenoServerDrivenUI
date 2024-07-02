@@ -1,6 +1,6 @@
 package com.example.benoserverdrivenui.domain.repository
 
-import com.example.benoserverdrivenui.components.Component
+import com.example.benoserverdrivenui.sdui.components.Component
 
 interface SDUIRepository {
     suspend fun getHomeScreen(): Component

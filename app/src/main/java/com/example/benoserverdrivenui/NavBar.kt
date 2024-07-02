@@ -50,7 +50,6 @@ fun NavItem(
     isSelected: Boolean,
     badgeCount: Int?,
     icon: ImageVector,
-    screen: Screen,
     selectedColor: Color,
     unselectedColor: Color
 ) {
@@ -147,7 +146,6 @@ fun NavBar(
                 isSelected = selectedItemIndex == index,
                 badgeCount = item.badgeCount,
                 icon = item.icon,
-                screen = item.screen,
                 selectedColor = item.selectedColor,
                 unselectedColor = item.unselectedColor
             )

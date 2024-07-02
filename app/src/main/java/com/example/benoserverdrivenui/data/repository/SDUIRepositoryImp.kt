@@ -1,8 +1,8 @@
 package com.example.benoserverdrivenui.data.repository
 
-import com.example.benoserverdrivenui.components.Component
 import com.example.benoserverdrivenui.data.remote.Api
 import com.example.benoserverdrivenui.domain.repository.SDUIRepository
+import com.example.benoserverdrivenui.sdui.components.Component
 
 class SDUIRepositoryImp(
     private val api: Api

@@ -18,11 +18,11 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.toRoute
-import com.example.benoserverdrivenui.components.Component
 import com.example.benoserverdrivenui.screens.BuyNowRow
 import com.example.benoserverdrivenui.screens.Payment
 import com.example.benoserverdrivenui.screens.ProductDetails
 import com.example.benoserverdrivenui.screens.SizeBox
+import com.example.benoserverdrivenui.sdui.components.Component
 import kotlinx.serialization.Serializable
 
 

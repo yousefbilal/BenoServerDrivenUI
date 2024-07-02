@@ -92,6 +92,8 @@ dependencies {
     implementation(libs.navigation.compose)
     implementation(libs.kotlinx.serialization.json)
 
+    implementation("androidx.browser:browser:1.8.0")
+
 }
 
 // Allow references to generated code

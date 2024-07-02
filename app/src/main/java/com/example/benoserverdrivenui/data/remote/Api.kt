@@ -1,6 +1,6 @@
 package com.example.benoserverdrivenui.data.remote
 
-import com.example.benoserverdrivenui.components.Component
+import com.example.benoserverdrivenui.sdui.components.Component
 import retrofit2.http.GET
 
 interface Api {
