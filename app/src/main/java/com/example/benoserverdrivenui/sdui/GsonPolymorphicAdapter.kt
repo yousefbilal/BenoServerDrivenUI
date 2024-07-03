@@ -1,5 +1,19 @@
-package com.example.benoserverdrivenui.sdui.components
+package com.example.benoserverdrivenui.sdui
 
+import com.example.benoserverdrivenui.Screen
+import com.example.benoserverdrivenui.sdui.actions.NavigationAction
+import com.example.benoserverdrivenui.sdui.actions.SduiAction
+import com.example.benoserverdrivenui.sdui.actions.ToastAction
+import com.example.benoserverdrivenui.sdui.actions.WebLinkAction
+import com.example.benoserverdrivenui.sdui.components.Box
+import com.example.benoserverdrivenui.sdui.components.BoxContainer
+import com.example.benoserverdrivenui.sdui.components.ColumnContainer
+import com.example.benoserverdrivenui.sdui.components.Component
+import com.example.benoserverdrivenui.sdui.components.Image
+import com.example.benoserverdrivenui.sdui.components.LazyRow
+import com.example.benoserverdrivenui.sdui.components.NavBar
+import com.example.benoserverdrivenui.sdui.components.RowContainer
+import com.example.benoserverdrivenui.sdui.components.TopAppBar
 import com.example.benoserverdrivenui.sdui.components.cup_screen.AddressBox
 import com.example.benoserverdrivenui.sdui.components.cup_screen.Payment
 import com.example.benoserverdrivenui.sdui.components.cup_screen.TopNavBar
@@ -29,10 +43,7 @@ import com.google.gson.typeadapters.RuntimeTypeAdapterFactory
 class ComponentPolymorphicAdapter {
     private val componentAdapterFactory = RuntimeTypeAdapterFactory
         .of(Component::class.java, "type")
-        .registerSubtype(
-            com.example.benoserverdrivenui.sdui.components.BoxContainer::class.java,
-            "box-container"
-        )
+        .registerSubtype(BoxContainer::class.java, "box-container")
         .registerSubtype(ColumnContainer::class.java, "column")
         .registerSubtype(RowContainer::class.java, "row")
         .registerSubtype(FilterList::class.java, "filter-list")
@@ -65,10 +76,26 @@ class ComponentPolymorphicAdapter {
         .registerSubtype(WidthModifier::class.java, "width")
         .registerSubtype(ZIndex::class.java, "zIndex")
 
+    private val screenAdapterFactory = RuntimeTypeAdapterFactory
+        .of(Screen::class.java, "type")
+        .registerSubtype(Screen.Home::class.java, "home")
+        .registerSubtype(Screen.Details::class.java, "details")
+        .registerSubtype(Screen.Cup::class.java, "cup")
+        .registerSubtype(Screen.Favorite::class.java, "favorite")
+        .registerSubtype(Screen.Notification::class.java, "notification")
+
+    private val actionAdapterFactory = RuntimeTypeAdapterFactory
+        .of(SduiAction::class.java, "type")
+        .registerSubtype(ToastAction::class.java, "toast")
+        .registerSubtype(NavigationAction::class.java, "navigation")
+        .registerSubtype(WebLinkAction::class.java, "web-link")
+
     fun getGson(): Gson {
         return GsonBuilder()
             .registerTypeAdapterFactory(componentAdapterFactory)
             .registerTypeAdapterFactory(modifierAdapterFactory)
+            .registerTypeAdapterFactory(screenAdapterFactory)
+            .registerTypeAdapterFactory(actionAdapterFactory)
             .create()
     }
 }

@@ -3,7 +3,7 @@ package com.example.benoserverdrivenui.sdui.components
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
-import androidx.navigation.NavController
+import androidx.navigation.NavHostController
 import coil.compose.AsyncImage
 import com.example.benoserverdrivenui.SduiViewModel
 import com.google.gson.annotations.SerializedName
@@ -17,7 +17,7 @@ class Image(
     override fun Content(
         modifier: Modifier,
         viewModel: SduiViewModel,
-        navController: NavController
+        navController: NavHostController
     ) {
         AsyncImage(
             modifier = modifier.applyModifiers(_modifiers),

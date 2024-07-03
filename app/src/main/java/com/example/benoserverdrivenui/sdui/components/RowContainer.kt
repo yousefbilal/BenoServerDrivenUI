@@ -3,7 +3,7 @@ package com.example.benoserverdrivenui.sdui.components
 import androidx.compose.foundation.layout.Row
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.navigation.NavController
+import androidx.navigation.NavHostController
 import com.example.benoserverdrivenui.SduiViewModel
 
 class RowContainer(
@@ -13,7 +13,7 @@ class RowContainer(
     override fun Content(
         modifier: Modifier,
         viewModel: SduiViewModel,
-        navController: NavController
+        navController: NavHostController
     ) {
         Row(
             modifier = modifier.applyModifiers(_modifiers)

@@ -29,7 +29,6 @@ class MainActivity : ComponentActivity() {
             Box(modifier = Modifier.fillMaxSize()) {
                 NavBar(
                     selectedItemIndex = viewModel.selectedNavBarItem,
-                    onSelectedItemChange = viewModel::onSelectedNavBarItemChange,
                     onClick = { navController.navigate(it.screen) },
                     modifier = Modifier
                         .align(Alignment.BottomCenter)

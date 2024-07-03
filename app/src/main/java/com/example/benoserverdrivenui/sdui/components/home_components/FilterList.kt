@@ -2,7 +2,7 @@ package com.example.benoserverdrivenui.sdui.components.home_components
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.navigation.NavController
+import androidx.navigation.NavHostController
 import com.example.benoserverdrivenui.SduiViewModel
 import com.example.benoserverdrivenui.screens.CoffeeFilter
 import com.example.benoserverdrivenui.screens.FilterList
@@ -15,7 +15,7 @@ class FilterList(
     override fun Content(
         modifier: Modifier,
         viewModel: SduiViewModel,
-        navController: NavController
+        navController: NavHostController
     ) {
         FilterList(
             modifier = modifier.applyModifiers(_modifiers),

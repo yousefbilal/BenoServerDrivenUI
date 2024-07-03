@@ -1,7 +1,6 @@
 package com.example.benoserverdrivenui
 
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -18,10 +17,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.toRoute
-import com.example.benoserverdrivenui.screens.BuyNowRow
 import com.example.benoserverdrivenui.screens.Payment
-import com.example.benoserverdrivenui.screens.ProductDetails
-import com.example.benoserverdrivenui.screens.SizeBox
 import com.example.benoserverdrivenui.sdui.components.Component
 import kotlinx.serialization.Serializable
 
@@ -29,6 +25,9 @@ import kotlinx.serialization.Serializable
 sealed class Screen {
     @Serializable
     object Home : Screen()
+
+    @Serializable
+    data class Details(val id: Int) : Screen()
 
     @Serializable
     object Cup : Screen()
@@ -53,13 +52,13 @@ fun Navigation(
         composable<Screen.Home> {
             HomeScreen(viewModel = viewModel, navController = navController, uiState = uiState)
         }
-        composable<Product> {
-            val product = it.toRoute<Product>()
+        composable<Screen.Details> {
+            val productId = it.toRoute<Screen.Details>().id
             DetailsScreen(
                 viewModel = viewModel,
                 navController = navController,
                 uiState = uiState,
-                product = product
+                id = productId
             )
         }
         composable<Screen.Cup> {
@@ -76,6 +75,7 @@ fun HomeScreen(
     modifier: Modifier = Modifier
 ) {
     LaunchedEffect(key1 = true) {
+        viewModel.onSelectedNavBarItemChange(0)
         viewModel.getHomeScreen()
     }
     uiState.value?.Content(modifier, viewModel, navController)
@@ -86,33 +86,14 @@ fun DetailsScreen(
     viewModel: SduiViewModel,
     navController: NavHostController,
     uiState: State<Component?>,
-    product: Product,
+    id: Int,
     modifier: Modifier = Modifier
 ) {
     LaunchedEffect(key1 = true) {
-        viewModel.getDetailsScreen()
+        viewModel.getDetailsScreen(id)
     }
 
     uiState.value?.Content(Modifier, viewModel, navController)
-    Column(
-        modifier = Modifier
-            .statusBarsPadding()
-            .padding(top = 66.dp, start = 24.dp, end = 24.dp)
-    ) {
-        ProductDetails(modifier = Modifier.padding(top = 24.dp), product = product)
-
-        SizeBox(modifier = Modifier.padding(top = 20.dp), onClick = { /*TODO*/ })
-
-        BuyNowRow(
-            modifier = Modifier.padding(top = 24.dp),
-            onClick = {
-                viewModel.onAction(Action.Buy(product))
-                viewModel.onSelectedNavBarItemChange(1)
-                navController.navigate(Screen.Cup)
-            },
-            price = product.price
-        )
-    }
 
 }
 
@@ -124,6 +105,7 @@ fun CupScreen(
     modifier: Modifier = Modifier
 ) {
     LaunchedEffect(key1 = true) {
+        viewModel.onSelectedNavBarItemChange(1)
         viewModel.getCupScreen()
     }
     uiState.value?.Content(Modifier, viewModel, navController)

@@ -2,16 +2,17 @@ package com.example.benoserverdrivenui.data.remote
 
 import com.example.benoserverdrivenui.sdui.components.Component
 import retrofit2.http.GET
+import retrofit2.http.Path
 
 interface Api {
 
-    @GET("home_screen.json")
+    @GET("home_screen")
     suspend fun getHomeScreen(): Component
 
-    @GET("details_screen.json")
-    suspend fun getDetailsScreen(): Component
+    @GET("details_screen/{id}")
+    suspend fun getDetailsScreen(@Path("id") id: Int): Component
 
-    @GET("cup_screen.json")
+    @GET("cup_screen")
     suspend fun getCupScreen(): Component
 
 }

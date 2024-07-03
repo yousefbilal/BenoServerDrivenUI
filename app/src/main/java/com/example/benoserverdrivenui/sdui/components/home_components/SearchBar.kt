@@ -7,7 +7,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.navigation.NavController
+import androidx.navigation.NavHostController
 import com.example.benoserverdrivenui.SduiViewModel
 import com.example.benoserverdrivenui.screens.SearchBar
 import com.example.benoserverdrivenui.sdui.components.Component
@@ -21,7 +21,7 @@ class SearchBar(
     override fun Content(
         modifier: Modifier,
         viewModel: SduiViewModel,
-        navController: NavController
+        navController: NavHostController
     ) {
         var text by remember {
             mutableStateOf("")

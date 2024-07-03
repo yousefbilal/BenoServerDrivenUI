@@ -6,7 +6,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavController
+import androidx.navigation.NavHostController
 import com.example.benoserverdrivenui.SduiViewModel
 
 class LazyRow(
@@ -17,7 +17,7 @@ class LazyRow(
     override fun Content(
         modifier: Modifier,
         viewModel: SduiViewModel,
-        navController: NavController
+        navController: NavHostController
     ) {
         LazyRow(
             modifier = modifier

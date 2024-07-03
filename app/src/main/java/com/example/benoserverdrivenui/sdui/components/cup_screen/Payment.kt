@@ -2,7 +2,7 @@ package com.example.benoserverdrivenui.sdui.components.cup_screen
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.navigation.NavController
+import androidx.navigation.NavHostController
 import com.example.benoserverdrivenui.Product
 import com.example.benoserverdrivenui.SduiViewModel
 import com.example.benoserverdrivenui.screens.Payment
@@ -15,7 +15,7 @@ class Payment(
     override fun Content(
         modifier: Modifier,
         viewModel: SduiViewModel,
-        navController: NavController
+        navController: NavHostController
     ) {
         Payment(
             modifier = modifier.applyModifiers(_modifiers),

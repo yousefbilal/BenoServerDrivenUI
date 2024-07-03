@@ -16,8 +16,8 @@ class SDUIRepositoryImp(
         return api.getHomeScreen()
     }
 
-    override suspend fun getDetailsScreen(): Component {
-        return api.getDetailsScreen()
+    override suspend fun getDetailsScreen(id: Int): Component {
+        return api.getDetailsScreen(id)
     }
 
     override suspend fun getCupScreen(): Component {

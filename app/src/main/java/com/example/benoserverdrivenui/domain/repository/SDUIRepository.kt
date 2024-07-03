@@ -4,6 +4,6 @@ import com.example.benoserverdrivenui.sdui.components.Component
 
 interface SDUIRepository {
     suspend fun getHomeScreen(): Component
-    suspend fun getDetailsScreen(): Component
+    suspend fun getDetailsScreen(id: Int): Component
     suspend fun getCupScreen(): Component
 }

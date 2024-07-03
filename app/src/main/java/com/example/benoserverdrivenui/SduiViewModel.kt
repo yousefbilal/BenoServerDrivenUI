@@ -45,9 +45,9 @@ class SduiViewModel @Inject constructor(
         }
     }
 
-    fun getDetailsScreen() {
+    fun getDetailsScreen(id: Int) {
         viewModelScope.launch(Dispatchers.IO) {
-            val res = repository.getDetailsScreen()
+            val res = repository.getDetailsScreen(id)
             data.value = res
         }
     }

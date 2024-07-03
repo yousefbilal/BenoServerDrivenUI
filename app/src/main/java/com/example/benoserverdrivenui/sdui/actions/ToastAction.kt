@@ -7,9 +7,7 @@ import androidx.navigation.NavHostController
 class ToastAction(
     private val message: String
 ) : SduiAction {
-    override fun perfromAction(navController: NavHostController?, context: Context?) {
-        context?.let {
-            Toast.makeText(it, message, Toast.LENGTH_SHORT).show()
-        }
+    override fun performAction(navController: NavHostController, context: Context) {
+        Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
     }
 }

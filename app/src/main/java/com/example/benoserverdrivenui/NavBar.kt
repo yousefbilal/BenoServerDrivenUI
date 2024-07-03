@@ -96,7 +96,6 @@ fun NavItem(
 fun NavBar(
     modifier: Modifier = Modifier,
     selectedItemIndex: Int,
-    onSelectedItemChange: (Int) -> Unit,
     onClick: (BottomNavigationItem) -> Unit
 ) {
     val items = listOf(
@@ -140,7 +139,6 @@ fun NavBar(
             NavItem(
                 modifier = Modifier.size(80.dp),
                 onClick = {
-                    onSelectedItemChange(index)
                     onClick(item)
                 },
                 isSelected = selectedItemIndex == index,
