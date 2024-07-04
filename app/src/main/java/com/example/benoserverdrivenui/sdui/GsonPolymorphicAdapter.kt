@@ -5,6 +5,7 @@ import com.example.benoserverdrivenui.sdui.actions.NavigationAction
 import com.example.benoserverdrivenui.sdui.actions.SduiAction
 import com.example.benoserverdrivenui.sdui.actions.ToastAction
 import com.example.benoserverdrivenui.sdui.actions.WebLinkAction
+import com.example.benoserverdrivenui.sdui.actions.WhatsAppAction
 import com.example.benoserverdrivenui.sdui.components.Box
 import com.example.benoserverdrivenui.sdui.components.BoxContainer
 import com.example.benoserverdrivenui.sdui.components.ColumnContainer
@@ -40,7 +41,7 @@ import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.typeadapters.RuntimeTypeAdapterFactory
 
-class ComponentPolymorphicAdapter {
+class PolymorphicAdapter {
     private val componentAdapterFactory = RuntimeTypeAdapterFactory
         .of(Component::class.java, "type")
         .registerSubtype(BoxContainer::class.java, "box-container")
@@ -89,6 +90,7 @@ class ComponentPolymorphicAdapter {
         .registerSubtype(ToastAction::class.java, "toast")
         .registerSubtype(NavigationAction::class.java, "navigation")
         .registerSubtype(WebLinkAction::class.java, "web-link")
+        .registerSubtype(WhatsAppAction::class.java, "whatsapp")
 
     fun getGson(): Gson {
         return GsonBuilder()

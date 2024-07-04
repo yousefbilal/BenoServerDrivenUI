@@ -601,10 +601,8 @@
           {
             "type": "products-grid",
             "action": {
-              "type": "navigation",
-              "screen": {
-                "type": "cup"
-              }
+              "type": "web-link",
+              "url": "https://www.google.com"
             },
             "modifiers": [
               {

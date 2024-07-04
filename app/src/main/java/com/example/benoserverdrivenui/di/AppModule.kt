@@ -4,7 +4,7 @@ package com.example.benoserverdrivenui.di
 import com.example.benoserverdrivenui.data.remote.Api
 import com.example.benoserverdrivenui.data.repository.SDUIRepositoryImp
 import com.example.benoserverdrivenui.domain.repository.SDUIRepository
-import com.example.benoserverdrivenui.sdui.ComponentPolymorphicAdapter
+import com.example.benoserverdrivenui.sdui.PolymorphicAdapter
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -17,7 +17,7 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object AppModule {
 
-    private const val BASEURL =
+        private const val BASEURL =
         "http://10.0.2.2:3000/"
 
     @Provides
@@ -26,7 +26,7 @@ object AppModule {
         return Retrofit.Builder()
             .baseUrl(BASEURL)
             .addConverterFactory(
-                GsonConverterFactory.create(ComponentPolymorphicAdapter().getGson())
+                GsonConverterFactory.create(PolymorphicAdapter().getGson())
             )
             .build()
             .create(Api::class.java)
