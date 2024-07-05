@@ -1,4 +1,4 @@
-package com.example.benoserverdrivenui.sdui.components.home_components
+package com.example.benoserverdrivenui.sdui.components.home_screen
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue

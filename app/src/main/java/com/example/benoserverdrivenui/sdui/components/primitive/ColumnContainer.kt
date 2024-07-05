@@ -1,12 +1,13 @@
-package com.example.benoserverdrivenui.sdui.components
+package com.example.benoserverdrivenui.sdui.components.primitive
 
-import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import com.example.benoserverdrivenui.SduiViewModel
+import com.example.benoserverdrivenui.sdui.components.Component
 
-class RowContainer(
+class ColumnContainer(
     private val items: List<Component>
 ) : Component() {
     @Composable
@@ -15,7 +16,7 @@ class RowContainer(
         viewModel: SduiViewModel,
         navController: NavHostController
     ) {
-        Row(
+        Column(
             modifier = modifier.applyModifiers(_modifiers)
         ) {
             items.forEach {
@@ -23,5 +24,4 @@ class RowContainer(
             }
         }
     }
-
 }

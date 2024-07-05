@@ -1,4 +1,4 @@
-package com.example.benoserverdrivenui.sdui.components.details_screen_components
+package com.example.benoserverdrivenui.sdui.components.details_screen
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier

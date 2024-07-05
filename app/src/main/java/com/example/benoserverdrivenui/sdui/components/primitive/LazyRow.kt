@@ -1,4 +1,4 @@
-package com.example.benoserverdrivenui.sdui.components
+package com.example.benoserverdrivenui.sdui.components.primitive
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.lazy.LazyRow
@@ -8,6 +8,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.example.benoserverdrivenui.SduiViewModel
+import com.example.benoserverdrivenui.sdui.components.Component
 
 class LazyRow(
     private val items: List<Component>,

@@ -1,14 +1,15 @@
-package com.example.benoserverdrivenui.sdui.components
+package com.example.benoserverdrivenui.sdui.components.primitive
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import com.example.benoserverdrivenui.SduiViewModel
+import com.example.benoserverdrivenui.sdui.components.Component
 
 class BoxContainer(
-    private val items: List<com.example.benoserverdrivenui.sdui.components.Component>
-) : com.example.benoserverdrivenui.sdui.components.Component() {
+    private val items: List<Component>
+) : Component() {
     @Composable
     override fun Content(
         modifier: Modifier,

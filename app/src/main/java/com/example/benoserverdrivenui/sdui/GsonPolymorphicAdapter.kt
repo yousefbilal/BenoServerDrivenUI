@@ -6,25 +6,29 @@ import com.example.benoserverdrivenui.sdui.actions.SduiAction
 import com.example.benoserverdrivenui.sdui.actions.ToastAction
 import com.example.benoserverdrivenui.sdui.actions.WebLinkAction
 import com.example.benoserverdrivenui.sdui.actions.WhatsAppAction
-import com.example.benoserverdrivenui.sdui.components.Box
-import com.example.benoserverdrivenui.sdui.components.BoxContainer
-import com.example.benoserverdrivenui.sdui.components.ColumnContainer
 import com.example.benoserverdrivenui.sdui.components.Component
 import com.example.benoserverdrivenui.sdui.components.Image
-import com.example.benoserverdrivenui.sdui.components.LazyRow
 import com.example.benoserverdrivenui.sdui.components.NavBar
-import com.example.benoserverdrivenui.sdui.components.RowContainer
 import com.example.benoserverdrivenui.sdui.components.TopAppBar
 import com.example.benoserverdrivenui.sdui.components.cup_screen.AddressBox
 import com.example.benoserverdrivenui.sdui.components.cup_screen.Payment
 import com.example.benoserverdrivenui.sdui.components.cup_screen.TopNavBar
-import com.example.benoserverdrivenui.sdui.components.details_screen_components.BuyNowRow
-import com.example.benoserverdrivenui.sdui.components.details_screen_components.DetailTopAppBar
-import com.example.benoserverdrivenui.sdui.components.details_screen_components.ProductsDetails
-import com.example.benoserverdrivenui.sdui.components.details_screen_components.SizeBox
-import com.example.benoserverdrivenui.sdui.components.home_components.FilterList
-import com.example.benoserverdrivenui.sdui.components.home_components.ProductsGrid
-import com.example.benoserverdrivenui.sdui.components.home_components.SearchBar
+import com.example.benoserverdrivenui.sdui.components.details_screen.BuyNowRow
+import com.example.benoserverdrivenui.sdui.components.details_screen.DetailTopAppBar
+import com.example.benoserverdrivenui.sdui.components.details_screen.ProductsDetails
+import com.example.benoserverdrivenui.sdui.components.details_screen.SizeBox
+import com.example.benoserverdrivenui.sdui.components.home_screen.FilterList
+import com.example.benoserverdrivenui.sdui.components.home_screen.ProductsGrid
+import com.example.benoserverdrivenui.sdui.components.home_screen.SearchBar
+import com.example.benoserverdrivenui.sdui.components.primitive.Box
+import com.example.benoserverdrivenui.sdui.components.primitive.BoxContainer
+import com.example.benoserverdrivenui.sdui.components.primitive.Button
+import com.example.benoserverdrivenui.sdui.components.primitive.ColumnContainer
+import com.example.benoserverdrivenui.sdui.components.primitive.Icon
+import com.example.benoserverdrivenui.sdui.components.primitive.LazyColumn
+import com.example.benoserverdrivenui.sdui.components.primitive.LazyRow
+import com.example.benoserverdrivenui.sdui.components.primitive.RowContainer
+import com.example.benoserverdrivenui.sdui.components.primitive.Text
 import com.example.benoserverdrivenui.sdui.modifiers.BackgroundModifier
 import com.example.benoserverdrivenui.sdui.modifiers.FillMaxHeightModifier
 import com.example.benoserverdrivenui.sdui.modifiers.FillMaxSizeModifier
@@ -62,6 +66,10 @@ class PolymorphicAdapter {
         .registerSubtype(TopNavBar::class.java, "top-nav-bar")
         .registerSubtype(LazyRow::class.java, "lazy-row")
         .registerSubtype(Image::class.java, "image")
+        .registerSubtype(LazyColumn::class.java, "lazy-column")
+        .registerSubtype(Text::class.java, "text")
+        .registerSubtype(Button::class.java, "button")
+        .registerSubtype(Icon::class.java, "icon")
 
     private val modifierAdapterFactory = RuntimeTypeAdapterFactory
         .of(SduiModifier::class.java, "type")
