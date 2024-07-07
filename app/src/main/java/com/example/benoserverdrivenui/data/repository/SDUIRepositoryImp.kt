@@ -24,4 +24,8 @@ class SDUIRepositoryImp(
         return api.getCupScreen()
     }
 
+    override suspend fun getCupScreenBg(): Component {
+        return api.getCupScreenBg()
+    }
+
 }

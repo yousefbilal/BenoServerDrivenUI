@@ -15,4 +15,7 @@ interface Api {
     @GET("cup_screen")
     suspend fun getCupScreen(): Component
 
+    @GET("cup_screen_bg")
+    suspend fun getCupScreenBg(): Component
+
 }

@@ -1,6 +1,7 @@
 package com.example.benoserverdrivenui
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -11,6 +12,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.State
 import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
@@ -104,23 +109,32 @@ fun CupScreen(
     uiState: State<Component?>,
     modifier: Modifier = Modifier
 ) {
+    var cupScreenBg by remember {
+        mutableStateOf<Component?>(null)
+    }
     LaunchedEffect(key1 = true) {
         viewModel.onSelectedNavBarItemChange(1)
         viewModel.getCupScreen()
-    }
-    uiState.value?.Content(Modifier, viewModel, navController)
-
-    LazyColumn(
-        modifier = Modifier
-            .statusBarsPadding()
-            .padding(top = 329.dp, start = 24.dp, end = 24.dp),
-        verticalArrangement = Arrangement.spacedBy(24.dp)
-    ) {
-        items(viewModel.purchasedProducts) {
-            Payment(product = it) {
-                /*TODO*/
-            }
+        viewModel.getCupScreenBg { bg ->
+            cupScreenBg = bg
         }
-        item { Spacer(modifier = Modifier.height(130.dp)) }
     }
+    cupScreenBg?.Content(modifier = Modifier, viewModel = viewModel, navController = navController)
+    Column {
+        uiState.value?.Content(Modifier, viewModel, navController)
+        LazyColumn(
+            modifier = Modifier
+                .statusBarsPadding()
+                .padding(start = 24.dp, end = 24.dp),
+            verticalArrangement = Arrangement.spacedBy(24.dp)
+        ) {
+            items(viewModel.purchasedProducts) {
+                Payment(product = it) {
+                    /*TODO*/
+                }
+            }
+            item { Spacer(modifier = Modifier.height(130.dp)) }
+        }
+    }
+
 }
