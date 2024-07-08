@@ -45,45 +45,61 @@ import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.typeadapters.RuntimeTypeAdapterFactory
 
+val componentMapping = mapOf(
+    BoxContainer::class.java to "box-container",
+    ColumnContainer::class.java to "column",
+    RowContainer::class.java to "row",
+    FilterList::class.java to "filter-list",
+    ProductsGrid::class.java to "products-grid",
+    SearchBar::class.java to "search-bar",
+    TopAppBar::class.java to "top-app-bar",
+    Box::class.java to "box",
+    NavBar::class.java to "nav-bar",
+    DetailTopAppBar::class.java to "detail-top-bar",
+    ProductsDetails::class.java to "product-details",
+    SizeBox::class.java to "size-box",
+    BuyNowRow::class.java to "buy-now-row",
+    AddressBox::class.java to "address-box",
+    Payment::class.java to "payment",
+    TopNavBar::class.java to "top-nav-bar",
+    LazyRow::class.java to "lazy-row",
+    Image::class.java to "image",
+    LazyColumn::class.java to "lazy-column",
+    Text::class.java to "text",
+    Button::class.java to "button",
+    Icon::class.java to "icon"
+)
+
+val modifierMapping = mapOf(
+    BackgroundModifier::class.java to "background",
+    FillMaxSizeModifier::class.java to "fillMaxSize",
+    FillMaxWidthModifier::class.java to "fillMaxWidth",
+    FillMaxHeightModifier::class.java to "fillMaxHeight",
+    PaddingModifier::class.java to "padding",
+    StatusBarsPaddingModifier::class.java to "statusBarsPadding",
+    SafeDrawingPadding::class.java to "safeDrawingPadding",
+    SizeModifier::class.java to "size",
+    HeightModifier::class.java to "height",
+    WidthModifier::class.java to "width",
+    ZIndex::class.java to "zIndex"
+)
+
 class PolymorphicAdapter {
     private val componentAdapterFactory = RuntimeTypeAdapterFactory
         .of(Component::class.java, "type")
-        .registerSubtype(BoxContainer::class.java, "box-container")
-        .registerSubtype(ColumnContainer::class.java, "column")
-        .registerSubtype(RowContainer::class.java, "row")
-        .registerSubtype(FilterList::class.java, "filter-list")
-        .registerSubtype(ProductsGrid::class.java, "products-grid")
-        .registerSubtype(SearchBar::class.java, "search-bar")
-        .registerSubtype(TopAppBar::class.java, "top-app-bar")
-        .registerSubtype(Box::class.java, "box")
-        .registerSubtype(NavBar::class.java, "nav-bar")
-        .registerSubtype(DetailTopAppBar::class.java, "detail-top-bar")
-        .registerSubtype(ProductsDetails::class.java, "product-details")
-        .registerSubtype(SizeBox::class.java, "size-box")
-        .registerSubtype(BuyNowRow::class.java, "buy-now-row")
-        .registerSubtype(AddressBox::class.java, "address-box")
-        .registerSubtype(Payment::class.java, "payment")
-        .registerSubtype(TopNavBar::class.java, "top-nav-bar")
-        .registerSubtype(LazyRow::class.java, "lazy-row")
-        .registerSubtype(Image::class.java, "image")
-        .registerSubtype(LazyColumn::class.java, "lazy-column")
-        .registerSubtype(Text::class.java, "text")
-        .registerSubtype(Button::class.java, "button")
-        .registerSubtype(Icon::class.java, "icon")
+        .apply {
+            componentMapping.forEach { (clazz, type) ->
+                registerSubtype(clazz, type)
+            }
+        }
 
     private val modifierAdapterFactory = RuntimeTypeAdapterFactory
         .of(SduiModifier::class.java, "type")
-        .registerSubtype(BackgroundModifier::class.java, "background")
-        .registerSubtype(FillMaxSizeModifier::class.java, "fillMaxSize")
-        .registerSubtype(FillMaxWidthModifier::class.java, "fillMaxWidth")
-        .registerSubtype(FillMaxHeightModifier::class.java, "fillMaxHeight")
-        .registerSubtype(PaddingModifier::class.java, "padding")
-        .registerSubtype(StatusBarsPaddingModifier::class.java, "statusBarsPadding")
-        .registerSubtype(SafeDrawingPadding::class.java, "safeDrawingPadding")
-        .registerSubtype(SizeModifier::class.java, "size")
-        .registerSubtype(HeightModifier::class.java, "height")
-        .registerSubtype(WidthModifier::class.java, "width")
-        .registerSubtype(ZIndex::class.java, "zIndex")
+        .apply {
+            modifierMapping.forEach { (clazz, type) ->
+                registerSubtype(clazz, type)
+            }
+        }
 
     private val screenAdapterFactory = RuntimeTypeAdapterFactory
         .of(Screen::class.java, "type")
