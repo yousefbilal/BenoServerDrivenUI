@@ -6,10 +6,11 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import com.example.benoserverdrivenui.SduiViewModel
 import com.example.benoserverdrivenui.sdui.components.Component
+import com.example.benoserverdrivenui.sdui.components.Container
 
 class BoxContainer(
-    private val items: List<Component>
-) : Component() {
+    items: ArrayList<Component>
+) : Container(items) {
     @Composable
     override fun Content(
         modifier: Modifier,

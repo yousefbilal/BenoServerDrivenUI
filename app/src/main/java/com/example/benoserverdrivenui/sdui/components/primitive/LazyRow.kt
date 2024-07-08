@@ -9,11 +9,12 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.example.benoserverdrivenui.SduiViewModel
 import com.example.benoserverdrivenui.sdui.components.Component
+import com.example.benoserverdrivenui.sdui.components.Container
 
 class LazyRow(
-    private val items: List<Component>,
+    items: ArrayList<Component>,
     private val spacedBy: Int = 10
-) : Component() {
+) : Container(items) {
     @Composable
     override fun Content(
         modifier: Modifier,

@@ -1,7 +1,7 @@
 package com.example.benoserverdrivenui
 
+import android.util.Log
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -24,6 +24,8 @@ import androidx.navigation.compose.composable
 import androidx.navigation.toRoute
 import com.example.benoserverdrivenui.screens.Payment
 import com.example.benoserverdrivenui.sdui.components.Component
+import com.example.benoserverdrivenui.sdui.components.Container
+import kotlinx.coroutines.async
 import kotlinx.serialization.Serializable
 
 
@@ -83,6 +85,7 @@ fun HomeScreen(
         viewModel.onSelectedNavBarItemChange(0)
         viewModel.getHomeScreen()
     }
+
     uiState.value?.Content(modifier, viewModel, navController)
 }
 
@@ -109,32 +112,26 @@ fun CupScreen(
     uiState: State<Component?>,
     modifier: Modifier = Modifier
 ) {
-    var cupScreenBg by remember {
-        mutableStateOf<Component?>(null)
-    }
     LaunchedEffect(key1 = true) {
         viewModel.onSelectedNavBarItemChange(1)
-        viewModel.getCupScreen()
-        viewModel.getCupScreenBg { bg ->
-            cupScreenBg = bg
-        }
-    }
-    cupScreenBg?.Content(modifier = Modifier, viewModel = viewModel, navController = navController)
-    Column {
-        uiState.value?.Content(Modifier, viewModel, navController)
-        LazyColumn(
-            modifier = Modifier
-                .statusBarsPadding()
-                .padding(start = 24.dp, end = 24.dp),
-            verticalArrangement = Arrangement.spacedBy(24.dp)
+        viewModel.getCupScreen().join()
+        viewModel.addComponent(
+            uiState.value?.findComponentsByType("column")?.get(0) as Container
         ) {
-            items(viewModel.purchasedProducts) {
-                Payment(product = it) {
-                    /*TODO*/
+            LazyColumn(
+                modifier = Modifier
+                    .statusBarsPadding()
+                    .padding(top = 24.dp),
+                verticalArrangement = Arrangement.spacedBy(24.dp)
+            ) {
+                items(viewModel.purchasedProducts) {
+                    Payment(product = it) {
+                        /*TODO*/
+                    }
                 }
+                item { Spacer(modifier = Modifier.height(130.dp)) }
             }
-            item { Spacer(modifier = Modifier.height(130.dp)) }
         }
     }
-
+    uiState.value?.Content(Modifier, viewModel, navController)
 }
