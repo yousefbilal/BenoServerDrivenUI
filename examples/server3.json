@@ -17,7 +17,7 @@
             },
             {
               "type": "background",
-              "color": "FF1BAE76"
+              "color": "FF1BAEA6"
             },
             {
               "type": "statusBarsPadding"
@@ -86,7 +86,15 @@
             },
             {
               "type": "buy-now-row",
-              "price": "$10",
+              "product": {
+                "imageUrl": "https://s26552.pcdn.co/wp-content/uploads/2024/03/coffee.jpeg",
+                "name": "Cappuccino",
+                "type": "Classic",
+                "price": "$10",
+                "rating": 4.8,
+                "ratingCount": 230,
+                "description": "Whatever"
+              },
               "modifiers": [
                 {
                   "type": "padding",
@@ -115,7 +123,7 @@
             },
             {
               "type": "background",
-              "color": "FF1BAE76"
+              "color": "FF1BAEA6"
             },
             {
               "type": "statusBarsPadding"
@@ -184,7 +192,15 @@
             },
             {
               "type": "buy-now-row",
-              "price": "$10",
+              "product": {
+                "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Cappuccino_at_Sightglass_Coffee.jpg/640px-Cappuccino_at_Sightglass_Coffee.jpg",
+                "name": "Cappuccino",
+                "type": "Chiaro",
+                "price": "$15",
+                "rating": 4.3,
+                "ratingCount": 230,
+                "description": "Whatever"
+              },
               "modifiers": [
                 {
                   "type": "padding",
@@ -213,7 +229,7 @@
             },
             {
               "type": "background",
-              "color": "FF1BAE76"
+              "color": "FF1BAEA6"
             },
             {
               "type": "statusBarsPadding"
@@ -282,7 +298,15 @@
             },
             {
               "type": "buy-now-row",
-              "price": "$10",
+              "product": {
+                "imageUrl": "https://static6.depositphotos.com/1078289/570/i/950/depositphotos_5701948-stock-photo-chocolate-cappuccino-time-cup-of.jpg",
+                "name": "Cappuccino",
+                "type": "with Chocolate",
+                "price": "$13",
+                "rating": 4.8,
+                "ratingCount": 230,
+                "description": "Whatever"
+              },
               "modifiers": [
                 {
                   "type": "padding",
@@ -311,7 +335,7 @@
             },
             {
               "type": "background",
-              "color": "FF1BAE76"
+              "color": "FF1BAEA6"
             },
             {
               "type": "statusBarsPadding"
@@ -380,7 +404,15 @@
             },
             {
               "type": "buy-now-row",
-              "price": "$10",
+              "product": {
+                "imageUrl": "https://t4.ftcdn.net/jpg/00/73/19/13/360_F_73191397_jKOIqa0KVdyH2HQKhzBMYviWsEdNeGdE.jpg",
+                "name": "Cappuccino",
+                "type": "Scuro",
+                "price": "$12",
+                "rating": 4.8,
+                "ratingCount": 230,
+                "description": "Whatever"
+              },
               "modifiers": [
                 {
                   "type": "padding",
@@ -409,7 +441,7 @@
             },
             {
               "type": "background",
-              "color": "FF1BAE76"
+              "color": "FF1BAEA6"
             },
             {
               "type": "statusBarsPadding"
@@ -479,7 +511,16 @@
             },
             {
               "type": "buy-now-row",
-              "price": "$10",
+              "product": {
+                "destination": "cart",
+                "imageUrl": "https://cdn.shopify.com/s/files/1/0838/4525/files/Enjoy_1_1024x1024.jpg",
+                "name": "Cappuccino",
+                "type": "with Vanilla",
+                "price": "$16",
+                "rating": 4.8,
+                "ratingCount": 230,
+                "description": "Whatever"
+              },
               "modifiers": [
                 {
                   "type": "padding",
@@ -508,7 +549,7 @@
           },
           {
             "type": "background",
-            "color": "FF1BAE76"
+            "color": "FF1BAEA6"
           },
           {
             "type": "padding",
@@ -551,21 +592,6 @@
             ]
           },
           {
-            "type": "image",
-            "modifiers": [
-              {
-                "type": "fillMaxWidth"
-              },
-              {
-                "type": "padding",
-                "top": 24
-              }
-            ],
-            "url": "http://10.0.2.2:8000/img.png",
-            "contentDescription": "banner",
-            "scaling": "fill-width"
-          },
-          {
             "type": "filter-list",
             "modifiers": [
               {
@@ -600,10 +626,6 @@
           },
           {
             "type": "products-grid",
-            "action": {
-              "type": "web-link",
-              "url": "https://www.google.com"
-            },
             "modifiers": [
               {
                 "type": "padding",
@@ -683,7 +705,7 @@
           },
           {
             "type": "background",
-            "color": "FF1BAE76"
+            "color": "FF1BAEA6"
           },
           {
             "type": "padding",
@@ -716,15 +738,6 @@
             "page": "My Cup"
           },
           {
-            "type": "top-nav-bar",
-            "modifiers": [
-              {
-                "type": "padding",
-                "top": 10
-              }
-            ]
-          },
-          {
             "type": "address-box",
             "address": {
               "apartment": "2nd Door Emi",
@@ -734,6 +747,47 @@
               {
                 "type": "padding",
                 "top": 24
+              }
+            ]
+          },
+          {
+            "type": "row",
+            "modifiers": [
+              {
+                "type": "padding",
+                "top": 24
+              }
+            ],
+            "items": [
+              {
+                "type": "button",
+                "color": "FF1BAEA6",
+                "action": {
+                  "type": "toast",
+                  "message": "Welcome to Kopi Kap"
+                },
+                "content": {
+                  "type": "text",
+                  "color": "FFFFFFFF",
+                  "fontSize": 14,
+                  "fontWeight": 600,
+                  "text": "Click me"
+                }
+              },
+              {
+                "type": "button",
+                "color": "FF1BAEA6",
+                "action": {
+                  "type": "web-link",
+                  "url": "https://www.beno.com"
+                },
+                "content": {
+                  "type": "text",
+                  "color": "FFFFFFFF",
+                  "fontSize": 14,
+                  "fontWeight": 600,
+                  "text": "Visit us"
+                }
               }
             ]
           }
